@@ -1,28 +1,3 @@
-// Fonction pour créer un snippet de 300 caractères avec "..." si dépassement
-function createSnippet(text, maxLength = 300) {
-    if (text.length <= maxLength) {
-        return text;
-    }
-    return text.substring(0, maxLength).trim() + "...";
-}
-
-// Fonction pour basculer l'affichage d'un projet (développer/réduire)
-function toggleProject(projectId) {
-    const projectCard = document.querySelector(`[data-project="${projectId}"]`);
-    if (projectCard) {
-        projectCard.classList.toggle('expanded');
-    }
-}
-
-// Initialiser les snippets au chargement de la page
-document.addEventListener('DOMContentLoaded', function() {
-    const snippets = document.querySelectorAll('.project-snippet');
-    snippets.forEach(snippet => {
-        const originalText = snippet.textContent;
-        snippet.textContent = createSnippet(originalText);
-    });
-});
-
 // Données des projets
 const projectsData = {
   aura: {
@@ -447,22 +422,23 @@ document.addEventListener('DOMContentLoaded', function() {
       // --- Liste alignée de logos (compétences) ---
       (function initSkillsGrid(){
         const logos = [
-          'C.jpeg',
-          'figma.jpeg',
-          'Follow Us on Pinterest! - Threads.jpeg',
-          'github.jpeg',
-          'css.jpeg',
-          'html.jpeg',
-          'javascript.jpeg',
-          'latex.jpeg',
-          'mysql.jpeg',
-          'notion.jpeg',
-          'overleaf.jpg',
-          'php.jpeg',
-          'python.jpeg',
-          'sas.jpeg',
+          'C.webp',
+          'canva.webp',
+          'figma.webp',
+          'pinterest.webp',
+          'github.webp',
+          'css.webp',
+          'html.webp',
+          'javascript.webp',
+          'latex.webp',
+          'mysql.webp',
+          'notion.webp',
+          'overleaf.webp',
+          'php.webp',
+          'python.webp',
+          'sas.webp',
           'suiteoffice.png',
-          'vscode.jpeg'
+          'vscode.webp'
         ];
 
         function renderGrid(){
