@@ -928,6 +928,39 @@ html {
     z-index: 20;
 }
 
+/* --- Styles pour la section hobbies --- */
+.hobbies-content {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.hobbies-img-left {
+    width: 120px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    flex-shrink: 0;
+}
+
+.hobbies-text {
+    flex: 1;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .hobbies-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .hobbies-img-left {
+        width: 100%;
+        max-width: 200px;
+        margin: 0 auto;
+    }
+}
+
 /* --- Styles pour les polaroids vidéo --- */
 .videography-section {
     margin: 40px auto;
