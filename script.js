@@ -1,4 +1,137 @@
-// Données des projets (à personnaliser)
+// Données des projets
+const projectsData = {
+  aura: {
+    title: "⋆˚꩜｡ AURA - Planification d'évènements",
+    fullDesc: "Application web complète de gestion d'événements permettant aux particuliers et professionnels d'organiser et piloter leurs projets événementiels.\n\n• Gestion d'événements : création et configuration complète d'événements (lieu, date, durée, dress code, nourriture, décoration), système d'invitations avec intégration du carnet d'adresses, calendrier centralisé pour visualiser tous les événements.\n• Gestion budgétaire : constitution et suivi de budgets par événement avec catégorisation des dépenses (nourriture, décoration, sécurité, transport), tableau de bord statistique pour analyser l'évolution des dépenses dans le temps.\n• Outils de productivité : carnet d'adresses intégré, carnet de notes personnel, liens d'accès rapides personnalisables depuis l'accueil, tableau de bord centralisé.\n• Gestion multi-utilisateurs : système d'authentification, personnalisation du profil, invitation de contacts externes au réseau.\n\nMon rôle : Développement full-stack avec Django, conception UI/UX complète (Figma), implémentation du système de gestion budgétaire avec analytics, développement du calendrier et des outils de productivité, et documentation technique.\n\nTechnologies : Django, Python, HTML/CSS, Figma, GitHub\n\nStatut : Application fonctionnelle",
+    folder: "projects/aura"
+  },
+  keyper: {
+    title: "⋆˚꩜｡ KEYPER - gestion de foyer : get things done, together",
+    fullDesc: "Application web collaborative permettant aux familles et colocations de centraliser la gestion de leur quotidien.\n\nOrganisation domestique : création et gestion de plusieurs foyers, plans interactifs du logement avec attribution de tâches par pièce, listes de courses intelligentes (items cochés automatiquement transférés vers l'inventaire cuisine), système de rappels avec notifications personnalisées.\n\nCollaboration & partage : chat intégré en temps réel par foyer, feuilles de notes collaboratives, partage et enregistrement de recettes de cuisine.\n\nGamification : système complet de récompenses, classements entre membres du foyer, collection de trophées et statistiques de contribution pour motiver l'accomplissement des tâches. Gestion multi-utilisateurs : système de permissions granulaires (administrateur, membre, observateur, invité) et personnalisation complète des profils et avatars.\n\nMon rôle : Développement full-stack avec Django, conception UI/UX complète (Figma), implémentation de l'architecture multi-foyers avec système de rôles, développement des fonctionnalités temps réel (chat, notifications), déploiement en ligne (PythonAnywhere), et pilotage projet en méthode SCRUM (gestion sprints, backlogs, coordination équipe).\n\nTechnologies : Django, Python, HTML/CSS, PythonAnywhere, Figma, GitHub\n\nStatut : Application déployée en ligne et fonctionnelle",
+    folder: "projects/keyper"
+  },
+  smartycat: {
+    title: "⋆˚꩜｡ SMARTYCAT - l'app qui te rend plus intelligent",
+    fullDesc: "Plateforme web d'apprentissage ludique permettant aux utilisateurs de tester et développer leurs connaissances sur diverses thématiques (histoire, musique, sport, cuisine, etc.).\n\n• Contenu éducatif modulaire : séries de quiz et questions classées par thème et niveau, sessions chronométrées et modes d'entraînement.\n• Profils personnalisés : comptes utilisateurs avec avatars, suivi des scores, tableau de progression et historique des performances.\n• Quiz interactifs et adaptatifs : feedback instantané, explications détaillées et suggestions de révision basées sur les réponses.\n• Suivi & motivation : badges, récompenses et statistiques pour encourager la progression continue.\n\nMon rôle : Développement frontend (HTML/CSS), conception de la base de données cryptée (JSON), gestion backend (PHP/Apache via XAMPP), et création de l'identité visuelle complète (UI/UX sur Figma, design graphique sur Canva).\n\nTechnologies : HTML/CSS, PHP, JSON, XAMPP/Apache, Figma, Canva, GitHub\n\nStatut : Application web fonctionnelle en local.",
+    folder: "projects/smartycat"
+  },
+  compareme: {
+    title: "⋆˚꩜｡ COMPARE ME - COMPARAISON ET RECONNAISSANCE FACIALE",
+    fullDesc: "Application desktop de détection de sosies utilisant une base de donnée constituée de plusieurs centaines de photos pour comparer le visage d'un utilisateur à une base de données de célébrités. L'utilisateur peut capturer une photo via webcam ou importer un fichier, puis l'algorithme analyse et identifie le sosie le plus proche avec un pourcentage de correspondance. L'application génère également un certificat de sosie personnalisé au format PDF.\n\nMon rôle : Développement de l'interface graphique (Tkinter), implémentation de l'algorithme de reconnaissance faciale (DeepFace, OpenCV), gestion de la base de données d'images (Kaggle), calculs de similarité (Numpy), et création de l'expérience utilisateur complète (barre de progression, affichage résultats, export PDF).\n\nTechnologies : Python, DeepFace, OpenCV, Numpy, Tkinter, Threading, FPDF, Kaggle\n\nStatut : Application desktop fonctionnelle en local",
+    folder: "projects/compareme"
+  },
+  lacasa: {
+    title: "⋆˚꩜｡ LACASA - chat crypté",
+    fullDesc: "Application de messagerie instantanée sécurisée permettant la communication multi-utilisateurs en temps réel avec chiffrement des conversations. Communication & recherche : chat temps réel multi-utilisateurs, fonction de recherche dans l'historique des messages, support d'émojis pour enrichir les conversations.\n\nIntelligence artificielle : assistant IA intégré (Ollama) directement interpellable au sein du chat pour assistance contextuelle. Personnalisation complète : création de comptes utilisateurs, customisation totale de l'interface (fonds d'écran, polices, palettes de couleurs) pour une expérience utilisateur unique. Sécurité : chiffrement des messages pour garantir la confidentialité des échanges.\n\nMon rôle : Développement backend Python pour la logique de messagerie et le chiffrement, implémentation de l'interface utilisateur (HTML/CSS), intégration de l'IA conversationnelle (Ollama), gestion de la personnalisation et des préférences utilisateurs, et documentation technique complète.\n\nTechnologies : Python, HTML/CSS, Ollama (IA), GitHub\n\nStatut : Application fonctionnelle avec IA intégrée",
+    folder: "projects/lacasa"
+  }
+};
+
+// Fonction pour générer le chemin des images du dossier projet
+async function loadProjectImages(projectId, folder) {
+  try {
+    // Essayer de charger les images en cherchant les fichiers courants
+    const extensions = ['.jpg', '.jpeg', '.png', '.webp', '.gif', '.mp4', '.webm'];
+    const images = [];
+    
+    // Essayer de charger jusqu'à 10 fichiers avec des noms numériques
+    for (let i = 1; i <= 10; i++) {
+      for (const ext of extensions) {
+        const imgPath = `${folder}/image${i}${ext}`;
+        const response = await fetch(imgPath, { method: 'HEAD' });
+        if (response.ok) {
+          images.push(imgPath);
+          break;
+        }
+      }
+    }
+    
+    return images;
+  } catch (error) {
+    console.log('Erreur lors du chargement des images:', error);
+    return [];
+  }
+}
+
+// Fonction pour afficher un extrait de description (350 caractères)
+function generateSnippet(fullDesc, length = 350) {
+  let snippet = fullDesc.substring(0, length);
+  if (fullDesc.length > length) {
+    snippet = snippet.substring(0, snippet.lastIndexOf(' ')) + '...';
+  }
+  return snippet;
+}
+
+// Initialiser les snippets pour les 4 premières images
+async function initializeProjects() {
+  for (const [projectId, project] of Object.entries(projectsData)) {
+    // Charger les images du projet
+    const images = await loadProjectImages(projectId, project.folder);
+    project.allImages = images;
+    
+    // Générer l'extrait de description (350 caractères)
+    const snippetElement = document.querySelector(`[data-project="${projectId}"] .project-snippet`);
+    if (snippetElement) {
+      snippetElement.textContent = generateSnippet(project.fullDesc, 350);
+    }
+    
+    // Charger les 4 premières images en éventail
+    const fanImagesContainer = document.querySelector(`[data-project="${projectId}"] .fan-images`);
+    if (fanImagesContainer && images.length > 0) {
+      fanImagesContainer.innerHTML = ''; // Vider les images existantes
+      
+      for (let i = 0; i < Math.min(4, images.length); i++) {
+        const img = document.createElement('img');
+        img.src = images[i];
+        img.alt = `${project.title} Preview ${i + 1}`;
+        img.className = 'fan-img';
+        fanImagesContainer.appendChild(img);
+      }
+    }
+  }
+}
+
+// Appeler l'initialisation au chargement de la page
+document.addEventListener('DOMContentLoaded', initializeProjects);
+
+function openProject(id) {
+  const project = projectsData[id];
+  if (!project) return;
+
+  document.getElementById('modal-title').innerText = project.title;
+  document.getElementById('modal-desc').innerText = project.fullDesc;
+  
+  const imgContainer = document.getElementById('modal-images');
+  imgContainer.innerHTML = '';
+  
+  // Afficher toutes les images du projet
+  const images = project.allImages || [];
+  if (images.length === 0) {
+    // Fallback : charger les images prédéfinies si pas d'images dynamiques
+    const fallbackImages = project.images || [];
+    fallbackImages.forEach(src => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = project.title;
+      imgContainer.appendChild(img);
+    });
+  } else {
+    images.forEach(src => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = project.title;
+      imgContainer.appendChild(img);
+    });
+  }
+
+  document.getElementById('project-modal').classList.add('show');
+}
+
+function closeProject() {
+  document.getElementById('project-modal').classList.remove('show');
+}
+
+// Données des projets originales (legacy)
 const projets = [
     {
         titre: "Projet 1",
@@ -22,6 +155,24 @@ const projets = [
 
 // Fonction pour charger les projets
 document.addEventListener('DOMContentLoaded', function() {
+    const dotsEl = document.getElementById('loading-dots');
+    let dotsInterval = null;
+
+    if (dotsEl) {
+        const frames = ['.', '..', '...'];
+        let i = 0;
+        dotsInterval = window.setInterval(() => {
+            dotsEl.textContent = frames[i % frames.length];
+            i += 1;
+        }, 450);
+    }
+
+    window.addEventListener('load', function() {
+        if (dotsInterval) {
+            window.clearInterval(dotsInterval);
+        }
+    });
+
     const projetsGrid = document.querySelector('.projets-grid');
     
     // Ajouter les projets au DOM
@@ -49,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Animation au défilement
+    // Animation au défilement — uniquement effets sur header si présent
     window.addEventListener('scroll', function() {
         const header = document.querySelector('header');
         if (header) {
@@ -59,15 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 header.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
             }
         }
-
-        const mainText = document.getElementById('main-text');
-        if (mainText) {
-            if (window.scrollY > 30) {
-                mainText.classList.add('is-hidden');
-            } else {
-                mainText.classList.remove('is-hidden');
-            }
-        }
+        // NOTE: ne plus cacher le bandeau `#main-text` au scroll — il reste fixé en haut
     });
 
     // Ajout de styles pour les cartes de projet
@@ -118,4 +261,216 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     `;
     document.head.appendChild(style);
+
+    // Rendre visibles les URLs au survol via l'attribut title (utile pour voir le lien au niveau de la souris)
+    document.querySelectorAll('a[href]').forEach(a => {
+        try {
+            if (!a.getAttribute('title')) a.setAttribute('title', a.getAttribute('href'));
+        } catch (e) { /* ignore */ }
+    });
+
+    // --- Lightbox pour agrandir l'image CV ---
+    const cvImage = document.querySelector('.cv-image');
+    if (cvImage) {
+        cvImage.style.cursor = 'zoom-in';
+        cvImage.addEventListener('click', function () {
+            const overlay = document.createElement('div');
+            overlay.className = 'lightbox-overlay';
+
+            const img = document.createElement('img');
+            img.className = 'lightbox-image';
+            img.src = cvImage.src;
+            img.alt = cvImage.alt || 'CV';
+
+            overlay.appendChild(img);
+            document.body.appendChild(overlay);
+
+            // empêcher le clic sur l'image de fermer
+            img.addEventListener('click', function (ev) { ev.stopPropagation(); });
+
+            // fermer au clic hors de l'image
+            overlay.addEventListener('click', function () { overlay.remove(); });
+
+            // fermer avec Échap
+            function onKey(e) {
+                if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', onKey); }
+            }
+            document.addEventListener('keydown', onKey);
+        });
+    }
+
+    // --- Lightbox pour agrandir les images de certifications ---
+    document.querySelectorAll('.certification-item').forEach(img => {
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', function () {
+            const overlay = document.createElement('div');
+            overlay.className = 'lightbox-overlay';
+
+            const lightboxImg = document.createElement('img');
+            lightboxImg.className = 'lightbox-image';
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt || 'Certification';
+
+            overlay.appendChild(lightboxImg);
+            document.body.appendChild(overlay);
+
+            // empêcher le clic sur l'image de fermer
+            lightboxImg.addEventListener('click', function (ev) { ev.stopPropagation(); });
+
+            // fermer au clic hors de l'image
+            overlay.addEventListener('click', function () { overlay.remove(); });
+
+            // fermer avec Échap
+            function onKey(e) {
+                if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', onKey); }
+            }
+            document.addEventListener('keydown', onKey);
+        });
+    });
+
+    // --- Charger les photos du dossier photographie ---
+    const photoGallery = document.getElementById('photography-gallery');
+    if (photoGallery) {
+        const photos = [
+            '2022 italie (6).JPEG',
+            'IMG_0100.JPG',
+            'IMG_0263.JPG',
+            'IMG_0273.JPG',
+            'IMG_0275.JPG',
+            'IMG_1356.JPG',
+            'IMG_1417.JPG',
+            'IMG_1437.JPG',
+            'IMG_5371.JPG',
+            'IMG_5383.JPG',
+            'IMG_6568.JPG',
+            'IMG_7662.JPG',
+            'IMG_7699.JPG',
+            'IMG_7717.JPG',
+            'IMG_7768.JPG',
+            'IMG_7827.JPG',
+            'IMG_7957.JPG',
+            'IMG_9908.JPG',
+            'ski 2019 (34).JPG',
+            'ski 2019 (36).JPG'
+        ];
+        photos.forEach(photoName => {
+            const img = document.createElement('img');
+            img.className = 'photo-item';
+            img.src = `photographie/${encodeURI(photoName)}`;
+            img.alt = photoName;
+            img.style.cursor = 'zoom-in';
+            
+            // Lightbox pour les photos
+            img.addEventListener('click', function () {
+                const overlay = document.createElement('div');
+                overlay.className = 'lightbox-overlay';
+
+                const lightboxImg = document.createElement('img');
+                lightboxImg.className = 'lightbox-image';
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt || 'Photo';
+
+                overlay.appendChild(lightboxImg);
+                document.body.appendChild(overlay);
+
+                lightboxImg.addEventListener('click', function (ev) { ev.stopPropagation(); });
+                overlay.addEventListener('click', function () { overlay.remove(); });
+
+                function onKey(e) {
+                    if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', onKey); }
+                }
+                document.addEventListener('keydown', onKey);
+            });
+            
+            photoGallery.appendChild(img);
+        });
+    }
+
+    // --- Shortcuts (menu mobile) ---
+    const shortcutsToggle = document.getElementById('shortcuts-toggle');
+    const shortcutsMenu = document.getElementById('shortcuts-menu');
+    const iconsContainer = document.querySelector('.icons-container');
+    if (shortcutsMenu && iconsContainer) {
+        // cloner les liens d'icônes dans le menu shortcuts
+        iconsContainer.querySelectorAll('.icon-link').forEach(link => {
+            const clone = link.cloneNode(true);
+            // retirer styles qui peuvent gêner et s'assurer d'une bonne structure
+            clone.classList.add('shortcut-item');
+            shortcutsMenu.appendChild(clone);
+        });
+
+        function closeShortcuts() {
+            shortcutsMenu.classList.remove('open');
+            shortcutsMenu.setAttribute('aria-hidden', 'true');
+            if (shortcutsToggle) shortcutsToggle.setAttribute('aria-expanded', 'false');
+        }
+
+        function openShortcuts() {
+            shortcutsMenu.classList.add('open');
+            shortcutsMenu.setAttribute('aria-hidden', 'false');
+            if (shortcutsToggle) shortcutsToggle.setAttribute('aria-expanded', 'true');
+        }
+
+        if (shortcutsToggle) {
+            shortcutsToggle.addEventListener('click', function (e) {
+                e.stopPropagation();
+                if (shortcutsMenu.classList.contains('open')) closeShortcuts(); else openShortcuts();
+            });
+            shortcutsToggle.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); shortcutsToggle.click(); } });
+        }
+
+      // --- Liste alignée de logos (compétences) ---
+      (function initSkillsGrid(){
+        const logos = [
+          'C.jpeg',
+          'figma.jpeg',
+          'Follow Us on Pinterest! - Threads.jpeg',
+          'github.jpeg',
+          'css.jpeg',
+          'html.jpeg',
+          'javascript.jpeg',
+          'latex.jpeg',
+          'mysql.jpeg',
+          'notion.jpeg',
+          'overleaf.jpg',
+          'php.jpeg',
+          'python.jpeg',
+          'sas.jpeg',
+          'suiteoffice.png',
+          'vscode.jpeg'
+        ];
+
+        function renderGrid(){
+            const cloud = document.getElementById('skills-cloud');
+            if (!cloud) return;
+            cloud.innerHTML = '';
+
+            logos.forEach(name => {
+                const img = document.createElement('img');
+                img.src = encodeURI('competences_logos/' + name);
+                img.alt = name.replace(/\.[^/.]+$/, '');
+                img.loading = 'lazy';
+                img.title = img.alt;
+                cloud.appendChild(img);
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', renderGrid);
+        window.addEventListener('load', renderGrid);
+        window.addEventListener('resize', () => { clearTimeout(window._skillsGridTimer); window._skillsGridTimer = setTimeout(renderGrid, 120); });
+      })();
+
+        // fermer le menu si on clique en dehors
+        document.addEventListener('click', function (e) {
+            if (!shortcutsMenu.classList.contains('open')) return;
+            if (!shortcutsMenu.contains(e.target) && !shortcutsToggle.contains(e.target)) closeShortcuts();
+        });
+    }
+});
+
+window.addEventListener('load', function() {
+    document.body.classList.add('is-loaded');
+
+    const overlay = document.getElementById('loading-overlay');
+    if (overlay) overlay.remove();
 });

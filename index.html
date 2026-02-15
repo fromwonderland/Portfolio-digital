@@ -3,141 +3,294 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Camilia SABA - Portfolio</title>
+    <title>Camilia SABA ☆ Portfolio</title>
+    <link rel="icon" href="page_icon.webp" type="image/webp">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="top-banner" aria-hidden="true"></div>
-    <div class="content">
-        <div class="main-text" id="main-text">
-            <div class="header-title">Camilia SABA/Portfolio</div>
-            <div class="stage-info stage-search">RECHERCHE STAGE</div>
-            <div class="stage-info">Début : Avril 2026, Durée : 2-6 mois</div>
-        </div>
-
-        <div class="icons-container" aria-label="Navigation">
-            <a class="icon-link" href="#about-me">
-                <div class="icon-item">
-                    <div class="file-icon"></div>
-                    <div class="icon-title">About me</div>
-                </div>
-            </a>
-            <a class="icon-link" href="#mon-cv">
-                <div class="icon-item">
-                    <div class="file-icon"></div>
-                    <div class="icon-title">Mes compétences, mon CV</div>
-                </div>
-            </a>
-            <a class="icon-link" href="#projets">
-                <div class="icon-item">
-                    <div class="file-icon"></div>
-                    <div class="icon-title">Projets académiques et personnels</div>
-                </div>
-            </a>
-            <a class="icon-link" href="#hobbies">
-                <div class="icon-item">
-                    <div class="file-icon"></div>
-                    <div class="icon-title">Hobbies, centres d'intérêt</div>
-                </div>
-            </a>
-            <a class="icon-link" href="#coordonnees">
-                <div class="icon-item">
-                    <div class="file-icon"></div>
-                    <div class="icon-title">Mes Coordonnées</div>
-                </div>
-            </a>
+    <div class="loading-overlay" id="loading-overlay" aria-live="polite">
+        <div class="loading-card">
+            <img class="loading-image" src="charging_ducks.webp" alt="Chargement">
+            <div class="loading-text">Chargement du portfolio<span class="loading-dots" id="loading-dots">.</span></div>
         </div>
     </div>
 
-    <main class="page">
-        <section class="section">
-            <h1 class="section-title" id="about-me">About me...</h1>
-            <div class="window-container window-container--one">
-                <div class="window-header">
-                    <div class="window-buttons">
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                        <div class="dot"></div>
+    <div class="app" id="app">
+        <div class="top-banner" aria-hidden="true"></div>
+        <div class="content">
+            <div class="main-text" id="main-text">
+                <div class="header-title">Camilia SABA/Portfolio</div>
+                <div class="stage-info stage-search">RECHERCHE STAGE | Début : Avril 2026, Durée : 2-6 mois</div>
+            </div>
+
+            <div class="icons-container" aria-label="Navigation">
+                <a class="icon-link" href="#about-me">
+                    <div class="icon-item">
+                        <div class="file-icon"></div>
+                        <div class="icon-title">About me</div>
                     </div>
-                    <div class="plus-icon">+</div>
+                </a>
+                <a class="icon-link" href="#mon-cv">
+                    <div class="icon-item">
+                        <div class="file-icon"></div>
+                        <div class="icon-title">Mes compétences, mon CV</div>
+                    </div>
+                </a>
+                <a class="icon-link" href="#projets">
+                    <div class="icon-item">
+                        <div class="file-icon"></div>
+                        <div class="icon-title">Projets académiques et personnels</div>
+                    </div>
+                </a>
+                <a class="icon-link" href="#hobbies">
+                    <div class="icon-item">
+                        <div class="file-icon"></div>
+                        <div class="icon-title">Hobbies, centres d'intérêt</div>
+                    </div>
+                </a>
+                <a class="icon-link" href="#coordonnees">
+                    <div class="icon-item">
+                        <div class="file-icon"></div>
+                        <div class="icon-title">Mes Coordonnées</div>
+                    </div>
+                </a>
+            </div>
+            <!-- Toggle et menu pour mobile (raccourcis) -->
+            <div class="shortcuts-toggle" id="shortcuts-toggle" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">
+                <div class="file-icon" aria-hidden="true"></div>
+                <div class="shortcuts-label">Raccourcis</div>
+            </div>
+            <nav class="shortcuts-menu" id="shortcuts-menu" aria-hidden="true"></nav>
+        </div>
+
+        <main class="page">
+            <section class="section">
+            <h1 class="section-title" id="about-me">☆ About me...</h1>
+            <div class="aboutme-row">
+                <div class="window-container window-container--one">
+                    <div class="window-header">
+                        <div class="window-buttons">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                        <div class="plus-icon">+</div>
+                    </div>
+                    <div class="window-body">
+                        Étudiante en <u>3ᵉ année de licence MIAGE</u> (Méthodes Informatiques Appliquées aux Entreprises) à
+                        l'Université Paris Nanterre, je suis à la recherche d'un <u>stage de 2-6mois débutant en avril 2026</u>
+                        dans le e-commerce, l'expérience utilisateur, l'amélioration des systèmes d'information et la
+                        gestion de projet IT. Au cours de ma formation, j'ai développé des compétences solides en
+                        développement web, modélisation UML et analyse fonctionnelle, gestion de bases de données et
+                        méthodes de gestion de projet.
+                    </div>
                 </div>
-                <div class="window-body">
-                    Étudiante en 3ᵉ année de licence MIAGE (Méthodes Informatiques Appliquées aux Entreprises) à
-                    l’Université Paris Nanterre, je suis à la recherche d’un stage de 2-6mois débutant en avril 2026
-                    dans le e-commerce, l’expérience utilisateur et l’amélioration des systèmes d’information et la
-                    gestion de projet IT. Au cours de ma formation, j’ai développé des compétences solides en
-                    développement web, modélisation UML et analyse fonctionnelle, gestion de bases de données et
-                    méthodes de gestion de projet.
+                <img class="aboutme-img aboutme-img--right" src="aboutme_section/girl_reading.png" alt="Lecture" />
+            </div>
+
+            <div class="aboutme-row">
+                <img class="aboutme-img aboutme-img--left" src="aboutme_section/cat_dolls.JPG" alt="Cat dolls" />
+                <div class="window-container window-container--two">
+                    <div class="window-header">
+                        <div class="window-buttons">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                        <div class="plus-icon">+</div>
+                    </div>
+                    <div class="window-body">
+                        Je m'intéresse particulièrement à la conception d'interfaces intuitives et à l'optimisation des parcours
+                        utilisateurs. Autonome, structurée et engagée, j'aborde chaque projet avec méthode et pragmatisme.
+                        J'aime analyser les enjeux, proposer des solutions pertinentes et m'investir dans des environnements où je
+                        peux apporter une réelle valeur. Réceptive et adaptable, je m'intègre rapidement à de nouveaux outils et
+                        équipes.
+                    </div>
                 </div>
             </div>
 
-            <div class="window-container window-container--two">
-                <div class="window-header">
-                    <div class="window-buttons">
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                    </div>
-                    <div class="plus-icon">+</div>
-                </div>
-                <div class="window-body">
-                    Je m’intéresse particulièrement à la conception d’interfaces intuitives et à l’optimisation des parcours
-                    utilisateurs. Autonome, structurée et engagée, j’aborde chaque projet avec méthode et pragmatisme.
-                    J’aime analyser les enjeux, proposer des solutions pertinentes et m’investir dans des environnements où je
-                    peux apporter une réelle valeur. Réceptive et adaptable, je m’intègre rapidement à de nouveaux outils et
-                    équipes.
-                </div>
-            </div>
-
-            <p class="section-text section-text--center">Durant ma formation, j’ai été amenée à planifier et exécuter des projets seule comme en équipe, j’ai appris à manipuler
+            <h2 class="section-title section-title--center" id="mon-cv">☆ Mes compétences, mon CV</h2>
+            <p class="section-text section-text--center">Durant ma formation, j'ai été amenée à planifier et exécuter des projets seule comme en équipe, j'ai appris à manipuler
 différents langages de programmation (en particulier le C, le Java POO et le SQL) et à utiliser de nombreux outils
 (MySQL, Figma, Github, Notion, Canva etc.)</p>
 
-            <h2 class="section-title section-title--center" id="mon-cv">Mon CV</h2>
-            <p class="section-text section-text--center">J’ai récemment passé l’épreuve du CLES Anglais B2 au sein de mon université, ma prochaine étape sera le
+            <div id="skills-cloud" class="skills-cloud" aria-label="Nuage de compétences" role="img"></div>
+            <div class="cv-download">
+                <div class="cv-image-wrap">
+                    <img class="cv-image" src="camilia_cv.webp" alt="Camilia CV">
+
+                    <a class="cv-download-link" href="https://drive.google.com/file/d/1H8WZ4BKX9TfzUJVRpyARMQDUQ7hubyDR/view" target="_blank" rel="noopener noreferrer">
+                        <div class="cv-file-icon" aria-hidden="true"></div>
+                        <div class="cv-download-text">Télécharger mon CV</div>
+                    </a>
+                </div>
+            </div>
+            <p class="section-text section-text--center">J'ai récemment passé l'épreuve du CLES Anglais B2 au sein de mon université, ma prochaine étape sera le
 CLES Anglais C1 au mois de Mars 2026.</p>
+            <div class="certifications-gallery">
+                <img class="certification-item" src="certifications_langue/CLES_Attestation_d'obtention_page.jpg" alt="CLES Attestation">
+                <img class="certification-item" src="certifications_langue/Anglais_EF_SET Certificate.jpg" alt="EF SET Certificate">
+                <img class="certification-item" src="certifications_langue/altissia_certification.png" alt="Altissia Certification">
+            </div>
+            <p class="section-text section-text--center">En complément de mon cursus universitaire, j'ai pris l'initiative de suivre plusieurs formations certifiantes en ligne
+afin d'approfondir mes compétences techniques, en informatique, en langue, en analyse de données et en marketing.</p>
+            <div class="certifications-tech-wrapper">
+                <div class="certifications-list">
+                    <img class="certification-item" src="certifications-technique/Sololearn Python developer.jpg" alt="Sololearn Python Developer">
+                    <img class="certification-item" src="certifications-technique/Sololearn Certification Introduction au C.jpg" alt="Sololearn C">
+                    <img class="certification-item" src="certifications-technique/Sololearn Certification Introduction to Java.jpg" alt="Sololearn Java">
+                    <img class="certification-item" src="certifications-technique/Sololearn Certification Intermédiaire SQL.jpg" alt="Sololearn SQL">
+                    <img class="certification-item" src="certifications-technique/Sololearn Agentic Workflows.jpg" alt="Sololearn Agentic Workflows">
+                    <img class="certification-item" src="certifications-technique/Sololearn Certification Generative AI in practice.jpg" alt="Sololearn Generative AI">
+                    <img class="certification-item" src="certifications-technique/Sololearn Certification Vibe coding.jpg" alt="Sololearn Vibe">
+                    <img class="certification-item" src="certifications-technique/ISC2 candidate.png" alt="ISC2 Candidate">
+                </div>
+                <div class="certification-pix">
+                    <img class="certification-item certification-item--pix" src="certifications-technique/Camilia SABA Certification PIX.jpg" alt="Certification PIX">
+                </div>
+            </div>
+            <h2 class="section-title section-title--center" id="projets">☆ Projets académiques et personnels</h2>
+            <div class="projects-container" aria-label="Projets">
+              <div class="project-card" data-project="aura" onclick="openProject('aura')">
+                <div class="project-content">
+                  <div class="fan-images">
+                    <img src="projects/aura/image1.jpg" alt="AURA Preview 1" class="fan-img">
+                    <img src="projects/aura/image2.jpg" alt="AURA Preview 2" class="fan-img">
+                    <img src="projects/aura/image3.jpg" alt="AURA Preview 3" class="fan-img">
+                    <img src="projects/aura/image4.jpg" alt="AURA Preview 4" class="fan-img">
+                  </div>
+                  <h3 class="project-card-title">⋆˚꩜｡ AURA - Planification d'évènements</h3>
+                  <p class="project-snippet">Application web complète de gestion d'événements permettant aux particuliers et professionnels d'organiser et piloter leurs projets événementiels. Gestion d'événements : création et configuration complète d'événements (lieu, date, durée, dress code, nourriture, décoration), système d'invitations avec intégration du carnet d'adresses...</p>
+                </div>
+              </div>
 
-            <p class="section-text section-text--center">En complément de mon cursus universitaire, j’ai pris l’initiative de suivre plusieurs formations certifiantes en ligne
-afin d’approfondir mes compétences techniques, en informatique, en langue, en analyse de données et en marketing.</p>
+              <div class="project-card" data-project="keyper" onclick="openProject('keyper')">
+                <div class="project-content">
+                  <div class="fan-images">
+                    <img src="projects/keyper/image1.jpg" alt="KEYPER Preview 1" class="fan-img">
+                    <img src="projects/keyper/image2.jpg" alt="KEYPER Preview 2" class="fan-img">
+                    <img src="projects/keyper/image3.jpg" alt="KEYPER Preview 3" class="fan-img">
+                    <img src="projects/keyper/image4.jpg" alt="KEYPER Preview 4" class="fan-img">
+                  </div>
+                  <h3 class="project-card-title">⋆˚꩜｡ KEYPER - gestion de foyer</h3>
+                  <p class="project-snippet">Application web collaborative permettant aux familles et colocations de centraliser la gestion de leur quotidien. Organisation domestique : création et gestion de plusieurs foyers, plans interactifs du logement avec attribution de tâches par pièce, listes de courses intelligentes, système de rappels avec notifications...</p>
+                </div>
+              </div>
 
-            <h2 class="section-title section-title--center" id="projets">Projets académiques et personnels</h2>
-            <div class="bubbles" aria-label="Projets">
-                <div class="bubble"></div>
-                <div class="bubble"></div>
-                <div class="bubble"></div>
-                <div class="bubble"></div>
-                <div class="bubble"></div>
+              <div class="project-card" data-project="smartycat" onclick="openProject('smartycat')">
+                <div class="project-content">
+                  <div class="fan-images">
+                    <img src="projects/smartycat/image1.jpg" alt="SMARTYCAT Preview 1" class="fan-img">
+                    <img src="projects/smartycat/image2.jpg" alt="SMARTYCAT Preview 2" class="fan-img">
+                    <img src="projects/smartycat/image3.jpg" alt="SMARTYCAT Preview 3" class="fan-img">
+                    <img src="projects/smartycat/image4.jpg" alt="SMARTYCAT Preview 4" class="fan-img">
+                  </div>
+                  <h3 class="project-card-title">⋆˚꩜｡ SMARTYCAT - l'app qui te rend plus intelligent</h3>
+                  <p class="project-snippet">L'app qui te rend plus intelligent. Découvrez une application pensée pour enrichir votre apprentissage et augmenter votre productivité quotidienne. SMARTYCAT combine intelligence artificielle et interface intuitive pour vous aider à développer vos compétences...</p>
+                </div>
+              </div>
+
+              <div class="project-card" data-project="compareme" onclick="openProject('compareme')">
+                <div class="project-content">
+                  <div class="fan-images">
+                    <img src="projects/compareme/image1.jpg" alt="COMPARE ME Preview 1" class="fan-img">
+                    <img src="projects/compareme/image2.jpg" alt="COMPARE ME Preview 2" class="fan-img">
+                    <img src="projects/compareme/image3.jpg" alt="COMPARE ME Preview 3" class="fan-img">
+                    <img src="projects/compareme/image4.jpg" alt="COMPARE ME Preview 4" class="fan-img">
+                  </div>
+                  <h3 class="project-card-title">⋆˚꩜｡ COMPARE ME - Reconnaissance faciale</h3>
+                  <p class="project-snippet">Application desktop de détection de sosies utilisant une base de donnée constituée de plusieurs centaines de photos pour comparer le visage d'un utilisateur à une base de données de célébrités. L'algorithme analyse et identifie le sosie le plus proche avec un pourcentage de correspondance...</p>
+                </div>
+              </div>
+
+              <div class="project-card" data-project="lacasa" onclick="openProject('lacasa')">
+                <div class="project-content">
+                  <div class="fan-images">
+                    <img src="projects/lacasa/image1.jpg" alt="LACASA Preview 1" class="fan-img">
+                    <img src="projects/lacasa/image2.jpg" alt="LACASA Preview 2" class="fan-img">
+                    <img src="projects/lacasa/image3.jpg" alt="LACASA Preview 3" class="fan-img">
+                    <img src="projects/lacasa/image4.jpg" alt="LACASA Preview 4" class="fan-img">
+                  </div>
+                  <h3 class="project-card-title">⋆˚꩜｡ LACASA - chat crypté</h3>
+                  <p class="project-snippet">Application de messagerie instantanée sécurisée permettant la communication multi-utilisateurs en temps réel avec chiffrement des conversations. Chat temps réel avec fonction de recherche, support d'émojis, assistant IA intégré (Ollama), customisation complète de l'interface...</p>
+                </div>
+              </div>
             </div>
 
-            <p class="section-text section-text--center">Au lycée, j’ai été nommée Représentante des élèves et avait l’habitude de concevoir logos et affiches pour le Conseil de vie
-Lycéenne (CVL), cela m’a permis de découvrir de nouveaux outils, que j’utilise encore à ce jour, notamment Canva et Capcut pour
-le montage photo et vidéo.</p>
+            <div id="project-modal" class="modal" onclick="closeProject()">
+              <div class="modal-content" onclick="event.stopPropagation()">
+                <span class="modal-close" onclick="closeProject()">&times;</span>
+                <h2 id="modal-title"></h2>
+                <p id="modal-desc"></p>
+                <div id="modal-images" class="modal-grid"></div>
+              </div>
+            </div>
 
-            <h2 class="section-title section-title--center" id="hobbies">Hobbies, centres d’intérêt</h2>
+            <p class="section-text section-text--center">Au lycée, j'ai été nommée Représentante des élèves et avait l'habitude de concevoir logos et affiches pour le Conseil de vie Lycéenne (CVL), cela m'a permis de découvrir de nouveaux outils, que j'utilise encore à ce jour, notamment Canva et Capcut pour le montage photo et vidéo.</p>
 
-            <p class="section-text">Mes objectifs : apprendre, évoluer, m’améliorer.
+            <h2 class="section-title section-title--center" id="hobbies">☆ Hobbies, centres d'intérêt</h2>
+
+            <div class="window-container window-container--three">
+                <div class="window-header">
+                    <div class="window-buttons">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <div class="plus-icon">+</div>
+                </div>
+                <div class="window-body">
+                    Mes objectifs : apprendre, évoluer, m'améliorer.
 
 En parallèle de ma licence, je me forme activement au développement web à travers différentes
 plateformes et projets personnels, en cherchant toujours à renforcer mes compétences de manière
-concrète. Je n’hésite pas à sortir de ma zone de confort, que ce soit en validant des certifications
-FreeCodeCamp ou SoloLearn, et j’investis continuellement dans différents domaines pour
-consolider mes acquis. Chaque projet et chaque passion est pour moi une occasion de progresser.</p>
+concrète. Je n'hésite pas à sortir de ma zone de confort, que ce soit en validant des certifications
+FreeCodeCamp ou SoloLearn, et j'investis continuellement dans différents domaines pour
+consolider mes acquis. Chaque projet et chaque passion est pour moi une occasion de progresser.
+                </div>
+            </div>
 
-            <p class="section-text">Passionnée de photographie, littérature et cinématographie, j’aime développer mes compétences
+            <div class="window-container window-container--four">
+                <div class="window-header">
+                    <div class="window-buttons">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <div class="plus-icon">+</div>
+                </div>
+                <div class="window-body">
+                    Passionnée de photographie, littérature et cinématographie, j'aime développer mes compétences
 à travers mes projets personnels créatifs. Je pratique également le montage vidéo, le dessin et le
-scrapbooking dans mon temps libre. Dernièrement, je m’intéresse à la modélisation 3D avec le
-logiciel Blender.</p>
+scrapbooking dans mon temps libre. Dernièrement, je m'intéresse à la modélisation 3D avec le
+logiciel Blender.
+                </div>
+            </div>
 
-            <h2 class="section-title section-title--center" id="coordonnees">Mes coordonnées</h2>
-            <p class="contact-block"><strong>mail : camilia200@outlook.com<br>téléphone: 07.66.48.50.32</strong></p>
+            <div class="photography-gallery" id="photography-gallery">
+                <!-- Les photos du dossier photographie apparaîtront ici -->
+            </div>
+
+            <h2 class="section-title section-title--center" id="coordonnees">☆ Mes coordonnées</h2>
+            <p class="contact-block"><strong>Mail : camilia200@outlook.com<br>Téléphone: 07.66.48.50.32</strong></p>
             <a class="contact-link" href="https://www.linkedin.com/in/camilia-saba-b87226268" target="_blank" rel="noopener noreferrer">https://www.linkedin.com/in/camilia-saba-b87226268</a>
+
+            <div class="cv-download" style="margin-top:12px;">
+                <a class="cv-download-link" href="https://drive.google.com/file/d/1H8WZ4BKX9TfzUJVRpyARMQDUQ7hubyDR/view" target="_blank" rel="noopener noreferrer">
+                    <div class="cv-file-icon" aria-hidden="true"></div>
+                    <div class="cv-download-text">Télécharger mon CV</div>
+                </a>
+            </div>
 
             <p class="notice">🔁 Rechargez la page en cas de mauvais chargement des images
 🔨 Portfolio GitHub en cours de maintenance...</p>
-        </section>
-    </main>
+            </section>
+        </main>
+    </div>
     
+</div>
     <!-- Espace pour permettre le défilement -->
     <div class="scroll-content"></div>
+    <script src="script.js" defer></script>
 </body>
 </html>
