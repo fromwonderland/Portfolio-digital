@@ -353,12 +353,17 @@ document.addEventListener('DOMContentLoaded', function() {
             'lights.webp',
             'ski.webp'
         ];
-        photos.forEach(photoName => {
+        photos.forEach((photoName, index) => {
+            const polaroid = document.createElement('div');
+            polaroid.className = 'photo-polaroid';
+            
             const img = document.createElement('img');
             img.className = 'photo-item';
             img.src = `photographie/${encodeURI(photoName)}`;
             img.alt = photoName;
             img.style.cursor = 'zoom-in';
+            
+            polaroid.appendChild(img);
             
             // Lightbox pour les photos
             img.addEventListener('click', function () {
@@ -382,7 +387,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.addEventListener('keydown', onKey);
             });
             
-            photoGallery.appendChild(img);
+            photoGallery.appendChild(polaroid);
         });
     }
 
@@ -485,4 +490,30 @@ window.addEventListener('load', function() {
         const year = now.getFullYear();
         updateDateElement.textContent = `${day}/${month}/${year}`;
     }
+
+    // Adapter les polaroids vidéo aux dimensions réelles
+    const videos = document.querySelectorAll('.video-container video');
+    videos.forEach(video => {
+        video.addEventListener('loadedmetadata', function() {
+            const container = video.parentElement;
+            const videoWidth = this.videoWidth;
+            const videoHeight = this.videoHeight;
+            const aspectRatio = videoWidth / videoHeight;
+            
+            // Adapter le conteneur au ratio de la vidéo
+            if (aspectRatio > 1.5) {
+                // Vidéo très large
+                container.style.aspectRatio = '16/9';
+            } else if (aspectRatio < 0.7) {
+                // Vidéo très haute
+                container.style.aspectRatio = '9/16';
+            } else {
+                // Format standard
+                container.style.aspectRatio = aspectRatio.toString();
+            }
+        });
+        
+        // Forcer le chargement des métadonnées
+        video.load();
+    });
 });
