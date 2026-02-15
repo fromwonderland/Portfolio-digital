@@ -1,3 +1,28 @@
+// Fonction pour créer un snippet de 300 caractères avec "..." si dépassement
+function createSnippet(text, maxLength = 300) {
+    if (text.length <= maxLength) {
+        return text;
+    }
+    return text.substring(0, maxLength).trim() + "...";
+}
+
+// Fonction pour basculer l'affichage d'un projet (développer/réduire)
+function toggleProject(projectId) {
+    const projectCard = document.querySelector(`[data-project="${projectId}"]`);
+    if (projectCard) {
+        projectCard.classList.toggle('expanded');
+    }
+}
+
+// Initialiser les snippets au chargement de la page
+document.addEventListener('DOMContentLoaded', function() {
+    const snippets = document.querySelectorAll('.project-snippet');
+    snippets.forEach(snippet => {
+        const originalText = snippet.textContent;
+        snippet.textContent = createSnippet(originalText);
+    });
+});
+
 // Données des projets
 const projectsData = {
   aura: {
