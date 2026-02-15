@@ -422,23 +422,24 @@ document.addEventListener('DOMContentLoaded', function() {
       // --- Liste alignée de logos (compétences) ---
       (function initSkillsGrid(){
         const logos = [
-          'C.webp',
-          'canva.webp',
-          'figma.webp',
-          'pinterest.webp',
-          'github.webp',
-          'css.webp',
-          'html.webp',
-          'javascript.webp',
-          'latex.webp',
-          'mysql.webp',
-          'notion.webp',
-          'overleaf.webp',
-          'php.webp',
+          'C.webp',  
+          'mysql.webp', 
           'python.webp',
           'sas.webp',
-          'suiteoffice.png',
-          'vscode.webp'
+          'suiteoffice.webp',
+          'vscode.webp',
+          'figma.webp',          
+          'github.webp',
+          'php.webp',
+          'html.webp',
+          'css.webp',          
+          'javascript.webp',
+          'notion.webp',
+          'canva.webp',
+          'pinterest.webp',
+          'latex.webp',
+          'overleaf.webp'
+          
         ];
 
         function renderGrid(){
