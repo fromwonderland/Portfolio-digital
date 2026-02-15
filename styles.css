@@ -536,14 +536,14 @@ html {
 
 .header-title {
     color: #fb9f1a;
-    font-size: 33.5px;
+    font-size: 28px;
     margin-bottom: 10px;
     white-space: nowrap;
 }
 
 .stage-info {
     color: #fb9f1a;
-    font-size: 21.4px;
+    font-size: 18px;
     line-height: 1.4;
     margin-bottom: 10px;
     white-space: nowrap;
@@ -911,6 +911,57 @@ html {
 
 @media (max-width:720px){
     .skills-cloud img { width: 64px; }
+}
+
+/* --- Styles pour la documentation des projets --- */
+.documentation-link {
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* --- Styles pour la section coordonnées --- */
+.contact-section {
+    display: flex;
+    gap: 40px;
+    margin: 30px auto;
+    max-width: 1000px;
+    padding: 0 20px;
+    align-items: flex-start;
+}
+.contact-left {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.contact-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.contact-images {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+.contact-img {
+    width: auto;
+    height: auto;
+    max-width: 80px;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+@media (max-width:768px){
+    .contact-section {
+        flex-direction: column;
+        gap: 25px;
+    }
+    .contact-left {
+        align-items: center;
+    }
 }
 
 
