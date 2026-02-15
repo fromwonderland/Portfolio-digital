@@ -332,26 +332,26 @@ document.addEventListener('DOMContentLoaded', function() {
     const photoGallery = document.getElementById('photography-gallery');
     if (photoGallery) {
         const photos = [
-            'IMG_0100.JPG',
-            'IMG_0263.JPG',
-            'IMG_0273.JPG',
-            'IMG_0275.JPG',
-            'IMG_1356.JPG',
-            'IMG_1417.JPG',
-            'IMG_1437.JPG',
-            'IMG_5371.JPG',
-            'IMG_5383.JPG',
-            'IMG_6568.JPG',
-            'IMG_7662.JPG',
-            'IMG_7699.JPG',
-            'IMG_7717.JPG',
-            'IMG_7768.JPG',
-            'IMG_7827.JPG',
-            'IMG_7957.JPG',
-            'IMG_9908.JPG',
-            'italy.JPEG',
-            'lights.JPG',
-            'ski.JPG'
+            'IMG_0100.webp',
+            'IMG_0263.webp',
+            'IMG_0273.webp',
+            'IMG_0275.webp',
+            'IMG_1356.webp',
+            'IMG_1417.webp',
+            'IMG_1437.webp',
+            'IMG_5371.webp',
+            'IMG_5383.webp',
+            'IMG_6568.webp',
+            'IMG_7662.webp',
+            'IMG_7699.webp',
+            'IMG_7717.webp',
+            'IMG_7768.webp',
+            'IMG_7827.webp',
+            'IMG_7957.webp',
+            'IMG_9908.webp',
+            'italy.webp',
+            'lights.webp',
+            'ski.webp'
         ];
         photos.forEach(photoName => {
             const img = document.createElement('img');
