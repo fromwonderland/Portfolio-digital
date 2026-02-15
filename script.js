@@ -332,7 +332,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const photoGallery = document.getElementById('photography-gallery');
     if (photoGallery) {
         const photos = [
-            '2022 italie (6).JPEG',
             'IMG_0100.JPG',
             'IMG_0263.JPG',
             'IMG_0273.JPG',
@@ -350,8 +349,9 @@ document.addEventListener('DOMContentLoaded', function() {
             'IMG_7827.JPG',
             'IMG_7957.JPG',
             'IMG_9908.JPG',
-            'ski 2019 (34).JPG',
-            'ski 2019 (36).JPG'
+            'italy.JPEG',
+            'lights.JPG',
+            'ski.JPG'
         ];
         photos.forEach(photoName => {
             const img = document.createElement('img');
