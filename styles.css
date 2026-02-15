@@ -909,6 +909,85 @@ html {
     z-index: 20;
 }
 
+/* --- Styles pour les polaroids vidéo --- */
+.videography-section {
+    margin: 40px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.video-polaroid {
+    background-color: white;
+    padding: 15px 15px 60px 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.video-polaroid:nth-child(odd) {
+    transform: rotate(-2deg);
+}
+
+.video-polaroid:nth-child(even) {
+    transform: rotate(1deg);
+}
+
+.video-polaroid:hover {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.video-container {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background-color: #000;
+    border-radius: 2px;
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-caption {
+    text-align: center;
+    margin-top: 15px;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #333;
+    font-size: 14px;
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+}
+
+@media (max-width: 768px) {
+    .videos-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    .video-polaroid:nth-child(odd),
+    .video-polaroid:nth-child(even) {
+        transform: none;
+    }
+    
+    .video-polaroid:hover {
+        transform: scale(1.02);
+    }
+}
+
 @media (max-width:720px){
     .skills-cloud img { width: 64px; }
 }
