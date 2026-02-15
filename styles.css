@@ -605,7 +605,7 @@ html {
     margin-left: 6px;
 }
 .certification-item--pix {
-    max-width: 380px;
+    max-width: 190px;
     width: auto;
     height: auto;
     box-shadow: 0 10px 30px rgba(0,0,0,0.6);
@@ -688,10 +688,10 @@ html {
 /* --- Styles des Cartes Projets --- */
 .projects-container {
     display: grid;
-    /* 3 fenêtres par ligne avec espacement uniforme */
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    padding: 32px 24px;
+    /* Fixer 2 cartes par ligne sur grand écran, bascule à 1 sur petits écrans */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px;
+    padding: 28px 20px;
     justify-content: center;
     margin: 24px 0;
     max-width: 1400px;
@@ -710,79 +710,38 @@ html {
 
 .project-card {
     position: relative;
-    background: linear-gradient(180deg, #c8c8c8 0%, #a8a8a8 3%, #e0e0e0 8%, #c0c0c0 100%);
-    border: 2px solid #606060;
-    border-radius: 4px;
-    padding: 0;
+    background: #1a1a1a;
+    border: 2px solid #fb9f1a;
+    padding: 24px;
+    padding-top: 120px; /* laisser de l'espace pour l'éventail en haut */
+    border-radius: 12px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     z-index: 2;
-    min-height: 180px;
-    width: 100%;
-    box-shadow: 
-        0 4px 8px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.6),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    min-height: 340px;
 }
 
 .project-card:hover {
-    transform: translateY(-1px);
-    box-shadow: 
-        0 6px 12px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.7),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.3);
-    border-color: #404040;
-}
-
-.project-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 24px;
-    background: linear-gradient(180deg, #e0e0e0 0%, #c0c0c0 100%);
-    border-bottom: 1px solid #808080;
-    z-index: 3;
-    display: flex;
-    align-items: center;
-    padding: 0 8px;
-    gap: 6px;
-}
-
-.project-card::after {
-    content: '● ● ●';
-    position: absolute;
-    top: 4px;
-    left: 8px;
-    color: #ff4444;
-    font-size: 12px;
-    font-weight: bold;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-    z-index: 4;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(251, 159, 26, 0.3);
 }
 
 .project-content {
     position: relative;
-    flex: 1;
+    height: 100%;
     display: flex;
     flex-direction: column;
     z-index: 1;
-    padding: 32px 24px 24px 24px;
-    background: #f0f0f0;
 }
 
-/* Style de l'éventail d'images - AU DESSUS DE LA FENÊTRE */
+/* Style de l'éventail d'images - EN HAUT */
 .fan-images {
     position: absolute;
-    top: -100px;
+    top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 300px;
-    height: 100px;
+    width: 100%;
+    height: 80px;
     display: flex;
     justify-content: center;
     pointer-events: none;
@@ -791,23 +750,21 @@ html {
 
 .fan-img {
     position: absolute;
-    width: 60px;
-    height: 80px;
+    width: 70px;
+    height: 100px;
     object-fit: cover;
-    border-radius: 2px;
-    border: 2px solid #c0c0c0;
-    box-shadow: 
-        0 2px 6px rgba(0,0,0,0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 8px;
+    border: 2px solid #fb9f1a;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     top: 0;
     opacity: 0;
     pointer-events: auto;
-    filter: contrast(1.1) brightness(0.95);
 }
 
 .project-card:hover .fan-img {
     opacity: 1;
+    top: -80px;
 }
 
 .project-card:hover .fan-img:nth-child(1) {
@@ -815,88 +772,27 @@ html {
 }
 
 .project-card:hover .fan-img:nth-child(2) {
-    transform: rotate(-10deg) translateX(-25px);
+    transform: rotate(0deg) translateY(0px);
 }
 
 .project-card:hover .fan-img:nth-child(3) {
-    transform: rotate(10deg) translateX(25px);
-}
-
-.project-card:hover .fan-img:nth-child(4) {
     transform: rotate(25deg) translateX(70px);
 }
 
 .project-card-title {
-    color: #000080;
+    color: #fb9f1a;
     font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 8px;
+    font-weight: 700;
+    margin-bottom: 10px;
     margin-top: 0;
-    font-family: 'MS Sans Serif', 'Arial', sans-serif;
-    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8);
-    letter-spacing: -0.5px;
-    line-height: 1.2;
 }
 
 .project-snippet {
-    color: #000000;
-    font-size: 12px;
-    line-height: 1.3;
-    margin: 0;
-    font-family: 'MS Sans Serif', 'Arial', sans-serif;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-    -webkit-box-orient: vertical;
-    font-weight: 400;
-}
-
-/* Styles pour la description complète et les images (affichées au clic) */
-.project-full-description {
-    color: #34495e;
+    color: #ffffff;
     font-size: 14px;
-    line-height: 1.5;
-    margin: 12px 0 0 0;
-    font-family: 'Times New Roman', serif;
-    display: none;
-}
-
-.project-images-grid {
-    display: none;
-    margin-top: 16px;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 12px;
-}
-
-.project-images-grid img {
-    width: 100%;
-    height: 90px;
-    object-fit: cover;
-    border-radius: 2px;
-    border: 1px solid #808080;
-    box-shadow: 
-        0 1px 3px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    filter: contrast(1.05) brightness(0.98);
-    transition: all 0.2s ease;
-}
-
-.project-images-grid img:hover {
-    transform: scale(1.02);
-    box-shadow: 
-        0 2px 6px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    filter: contrast(1.1) brightness(1.0);
-}
-
-.project-card.expanded .project-snippet {
-    display: none;
-}
-
-.project-card.expanded .project-full-description,
-.project-card.expanded .project-images-grid {
-    display: block;
+    line-height: 1.4;
+    margin: 0;
+    flex-grow: 1;
 }
 
 /* --- Styles de la Modale --- */
