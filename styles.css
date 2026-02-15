@@ -32,7 +32,7 @@ html {
     top: 0;
     left: 0;
     right: 0;
-    height: 80px;
+    height: 100px;
     background: #000;
     z-index: 100;
 }
@@ -951,7 +951,7 @@ html {
 .contact-img {
     width: auto;
     height: auto;
-    max-width: 80px;
+    max-width: 100px;
     object-fit: contain;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
