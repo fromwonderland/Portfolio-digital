@@ -126,12 +126,13 @@ html {
 
 .window-container--one {
     --border-color: #2ecc71; /* vert pour la première fenêtre */
-    transform: translateX(-10px);
+    transform: translateX(0px);
+    min-height: 200px;
 }
 
 .window-container--two {
     --border-color: #2f80ed; /* contour bleu */
-    transform: translateX(5px);
+    transform: translateX(0px);
 }
 
 /* Fenêtres pour la section Hobbies - couleurs distinctes */
@@ -635,6 +636,12 @@ html {
 }
 .aboutme-img--left { order: 0; }
 .aboutme-img--right { order: 2; margin-left: 8px; }
+.window-container {
+    order: 1;
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+}
 
 @media (max-width:720px){
     .aboutme-row { flex-direction: column; gap: 12px; }
