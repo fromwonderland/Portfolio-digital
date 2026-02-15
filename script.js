@@ -104,6 +104,49 @@ function openProject(id) {
   const imgContainer = document.getElementById('modal-images');
   imgContainer.innerHTML = '';
   
+  // Ajouter l'image principale du projet en dessous de la description
+  const projectImageMap = {
+    'aura': 'projects/AURA_evenement/aura.webp',
+    'keyper': 'projects/KEYPER_gestion_de_foyer/keyper.webp',
+    'smartycat': 'projects/SMARTYCAT_culture_generale/smartycat.webp',
+    'compareme': 'projects/COMPAREME_reconnaissance_faciale/compareme.webp',
+    'lacasa': 'projects/LACASA_chat_crypte/lacasa.webp'
+  };
+  
+  const mainImg = document.createElement('img');
+  mainImg.src = projectImageMap[id] || '';
+  mainImg.alt = project.title;
+  mainImg.style.maxWidth = '100%';
+  mainImg.style.height = 'auto';
+  mainImg.style.borderRadius = '8px';
+  mainImg.style.marginTop = '20px';
+  mainImg.style.cursor = 'zoom-in';
+  
+  // Ajouter l'effet lightbox pour l'image principale
+  mainImg.addEventListener('click', function () {
+    const overlay = document.createElement('div');
+    overlay.className = 'lightbox-overlay';
+
+    const lightboxImg = document.createElement('img');
+    lightboxImg.className = 'lightbox-image';
+    lightboxImg.src = mainImg.src;
+    lightboxImg.alt = mainImg.alt || 'Image du projet';
+
+    overlay.appendChild(lightboxImg);
+    document.body.appendChild(overlay);
+
+    // Fermer au clic
+    lightboxImg.addEventListener('click', function (ev) { ev.stopPropagation(); });
+    overlay.addEventListener('click', function () { overlay.remove(); });
+
+    function onKey(e) {
+      if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', onKey); }
+    }
+    document.addEventListener('keydown', onKey);
+  });
+  
+  imgContainer.appendChild(mainImg);
+  
   // Afficher toutes les images du projet
   const images = project.allImages || [];
   if (images.length === 0) {
