@@ -633,7 +633,7 @@ html {
     object-fit: cover;
     box-shadow: 0 6px 18px rgba(0,0,0,0.45);
 }
-.aboutme-img--left { order: 0; margin-left: -2px; }
+.aboutme-img--left { order: 0; margin-right: 8px; }
 .aboutme-img--right { order: 2; margin-left: 8px; }
 
 @media (max-width:720px){
