@@ -99,6 +99,31 @@ function openProject(id) {
   if (!project) return;
 
   document.getElementById('modal-title').innerText = project.title;
+  
+  // Ajouter l'image bannière entre le titre et la description
+  const bannerImageMap = {
+    'aura': 'projects/AURA_evenement/baniere_aura.webp',
+    'keyper': 'projects/KEYPER_gestion_de_foyer/baniere_keyper.webp',
+    'smartycat': 'projects/SMARTYCAT_culture_generale/baniere_smartycat.webp',
+    'compareme': 'projects/COMPAREME_reconnaissance_faciale/baniere_compareme.webp',
+    'lacasa': 'projects/LACASA_chat_crypte/baniere_lacasa.webp'
+  };
+  
+  // Créer et insérer l'image bannière
+  const bannerImg = document.createElement('img');
+  bannerImg.src = bannerImageMap[id] || '';
+  bannerImg.alt = `Bannière ${project.title}`;
+  bannerImg.style.width = '100%';
+  bannerImg.style.height = 'auto';
+  bannerImg.style.maxHeight = '200px';
+  bannerImg.style.objectFit = 'cover';
+  bannerImg.style.borderRadius = '8px';
+  bannerImg.style.marginBottom = '20px';
+  
+  // Insérer l'image bannière après le titre
+  const modalTitle = document.getElementById('modal-title');
+  modalTitle.insertAdjacentElement('afterend', bannerImg);
+  
   document.getElementById('modal-desc').innerText = project.fullDesc;
   
   const imgContainer = document.getElementById('modal-images');

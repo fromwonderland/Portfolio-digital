@@ -776,7 +776,8 @@ html {
     max-height: 200px;
     overflow: hidden;
     border-radius: 8px 8px 0 0;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    margin-top: 0;
 }
 
 .banner-img {
