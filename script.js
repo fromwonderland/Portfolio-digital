@@ -349,7 +349,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'IMG_7827.webp',
             'IMG_7957.webp',
             'IMG_9908.webp',
-            'italy.webp',
+            'IMG_7231.webp',
             'lights.webp',
             'ski.webp'
         ];
