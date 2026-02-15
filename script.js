@@ -1,27 +1,27 @@
 // Données des projets
 const projectsData = {
   aura: {
-    title: "⋆˚꩜｡ AURA - Planification d'évènements",
+    title: "⋆˚⟡｡ AURA - Planification d'évènements",
     fullDesc: "Application web complète de gestion d'événements permettant aux particuliers et professionnels d'organiser et piloter leurs projets événementiels.\n\n• Gestion d'événements : création et configuration complète d'événements (lieu, date, durée, dress code, nourriture, décoration), système d'invitations avec intégration du carnet d'adresses, calendrier centralisé pour visualiser tous les événements.\n• Gestion budgétaire : constitution et suivi de budgets par événement avec catégorisation des dépenses (nourriture, décoration, sécurité, transport), tableau de bord statistique pour analyser l'évolution des dépenses dans le temps.\n• Outils de productivité : carnet d'adresses intégré, carnet de notes personnel, liens d'accès rapides personnalisables depuis l'accueil, tableau de bord centralisé.\n• Gestion multi-utilisateurs : système d'authentification, personnalisation du profil, invitation de contacts externes au réseau.\n\nMon rôle : Développement full-stack avec Django, conception UI/UX complète (Figma), implémentation du système de gestion budgétaire avec analytics, développement du calendrier et des outils de productivité, et documentation technique.\n\nTechnologies : Django, Python, HTML/CSS, Figma, GitHub\n\nStatut : Application fonctionnelle",
     folder: "projects/aura"
   },
   keyper: {
-    title: "⋆˚꩜｡ KEYPER - gestion de foyer : get things done, together",
+    title: "⋆˚⟡｡ KEYPER - gestion de foyer : get things done, together",
     fullDesc: "Application web collaborative permettant aux familles et colocations de centraliser la gestion de leur quotidien.\n\nOrganisation domestique : création et gestion de plusieurs foyers, plans interactifs du logement avec attribution de tâches par pièce, listes de courses intelligentes (items cochés automatiquement transférés vers l'inventaire cuisine), système de rappels avec notifications personnalisées.\n\nCollaboration & partage : chat intégré en temps réel par foyer, feuilles de notes collaboratives, partage et enregistrement de recettes de cuisine.\n\nGamification : système complet de récompenses, classements entre membres du foyer, collection de trophées et statistiques de contribution pour motiver l'accomplissement des tâches. Gestion multi-utilisateurs : système de permissions granulaires (administrateur, membre, observateur, invité) et personnalisation complète des profils et avatars.\n\nMon rôle : Développement full-stack avec Django, conception UI/UX complète (Figma), implémentation de l'architecture multi-foyers avec système de rôles, développement des fonctionnalités temps réel (chat, notifications), déploiement en ligne (PythonAnywhere), et pilotage projet en méthode SCRUM (gestion sprints, backlogs, coordination équipe).\n\nTechnologies : Django, Python, HTML/CSS, PythonAnywhere, Figma, GitHub\n\nStatut : Application déployée en ligne et fonctionnelle",
     folder: "projects/keyper"
   },
   smartycat: {
-    title: "⋆˚꩜｡ SMARTYCAT - l'app qui te rend plus intelligent",
+    title: "⋆˚⟡｡ SMARTYCAT - l'app qui te rend plus intelligent",
     fullDesc: "Plateforme web d'apprentissage ludique permettant aux utilisateurs de tester et développer leurs connaissances sur diverses thématiques (histoire, musique, sport, cuisine, etc.).\n\n• Contenu éducatif modulaire : séries de quiz et questions classées par thème et niveau, sessions chronométrées et modes d'entraînement.\n• Profils personnalisés : comptes utilisateurs avec avatars, suivi des scores, tableau de progression et historique des performances.\n• Quiz interactifs et adaptatifs : feedback instantané, explications détaillées et suggestions de révision basées sur les réponses.\n• Suivi & motivation : badges, récompenses et statistiques pour encourager la progression continue.\n\nMon rôle : Développement frontend (HTML/CSS), conception de la base de données cryptée (JSON), gestion backend (PHP/Apache via XAMPP), et création de l'identité visuelle complète (UI/UX sur Figma, design graphique sur Canva).\n\nTechnologies : HTML/CSS, PHP, JSON, XAMPP/Apache, Figma, Canva, GitHub\n\nStatut : Application web fonctionnelle en local.",
     folder: "projects/smartycat"
   },
   compareme: {
-    title: "⋆˚꩜｡ COMPARE ME - COMPARAISON ET RECONNAISSANCE FACIALE",
+    title: "⋆˚⟡｡ COMPARE ME - COMPARAISON ET RECONNAISSANCE FACIALE",
     fullDesc: "Application desktop de détection de sosies utilisant une base de donnée constituée de plusieurs centaines de photos pour comparer le visage d'un utilisateur à une base de données de célébrités. L'utilisateur peut capturer une photo via webcam ou importer un fichier, puis l'algorithme analyse et identifie le sosie le plus proche avec un pourcentage de correspondance. L'application génère également un certificat de sosie personnalisé au format PDF.\n\nMon rôle : Développement de l'interface graphique (Tkinter), implémentation de l'algorithme de reconnaissance faciale (DeepFace, OpenCV), gestion de la base de données d'images (Kaggle), calculs de similarité (Numpy), et création de l'expérience utilisateur complète (barre de progression, affichage résultats, export PDF).\n\nTechnologies : Python, DeepFace, OpenCV, Numpy, Tkinter, Threading, FPDF, Kaggle\n\nStatut : Application desktop fonctionnelle en local",
     folder: "projects/compareme"
   },
   lacasa: {
-    title: "⋆˚꩜｡ LACASA - chat crypté",
+    title: "⋆˚⟡｡ LACASA - chat crypté",
     fullDesc: "Application de messagerie instantanée sécurisée permettant la communication multi-utilisateurs en temps réel avec chiffrement des conversations. Communication & recherche : chat temps réel multi-utilisateurs, fonction de recherche dans l'historique des messages, support d'émojis pour enrichir les conversations.\n\nIntelligence artificielle : assistant IA intégré (Ollama) directement interpellable au sein du chat pour assistance contextuelle. Personnalisation complète : création de comptes utilisateurs, customisation totale de l'interface (fonds d'écran, polices, palettes de couleurs) pour une expérience utilisateur unique. Sécurité : chiffrement des messages pour garantir la confidentialité des échanges.\n\nMon rôle : Développement backend Python pour la logique de messagerie et le chiffrement, implémentation de l'interface utilisateur (HTML/CSS), intégration de l'IA conversationnelle (Ollama), gestion de la personnalisation et des préférences utilisateurs, et documentation technique complète.\n\nTechnologies : Python, HTML/CSS, Ollama (IA), GitHub\n\nStatut : Application fonctionnelle avec IA intégrée",
     folder: "projects/lacasa"
   }
@@ -475,4 +475,14 @@ window.addEventListener('load', function() {
 
     const overlay = document.getElementById('loading-overlay');
     if (overlay) overlay.remove();
+
+    // Afficher la date de dernière mise à jour
+    const updateDateElement = document.getElementById('update-date');
+    if (updateDateElement) {
+        const now = new Date();
+        const day = String(now.getDate()).padStart(2, '0');
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const year = now.getFullYear();
+        updateDateElement.textContent = `${day}/${month}/${year}`;
+    }
 });
