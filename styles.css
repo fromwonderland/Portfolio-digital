@@ -733,6 +733,13 @@ html {
     margin-right: auto;
 }
 
+/* Assurer les cartes sont rectangulaires */
+.projects-container .project-card {
+    aspect-ratio: 3/2;
+    min-height: 320px;
+    max-height: 450px;
+}
+
 /* Responsive: 1 carte par ligne sur écrans étroits */
 @media (max-width: 720px) {
     .projects-container {
@@ -740,19 +747,28 @@ html {
         padding: 18px 12px;
         gap: 20px;
     }
+    
+    .projects-container .project-card {
+        aspect-ratio: 3/2;
+        min-height: 280px;
+        max-height: 380px;
+    }
 }
 
 .project-card {
     position: relative;
     background: #1a1a1a;
     border: 2px solid #fb9f1a;
-    padding: 24px;
-    padding-top: 120px; /* laisser de l'espace pour l'éventail en haut */
+    padding: 20px;
     border-radius: 12px;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     z-index: 2;
-    min-height: 340px;
+    aspect-ratio: 3/2;
+    min-height: 320px;
+    max-height: 450px;
+    display: flex;
+    flex-direction: column;
 }
 
 .project-card:hover {
@@ -772,12 +788,12 @@ html {
 .project-banner {
     width: 100%;
     height: auto;
-    min-height: 120px;
-    max-height: 200px;
+    max-height: 120px;
     overflow: hidden;
     border-radius: 8px 8px 0 0;
     margin-bottom: 10px;
     margin-top: 0;
+    flex-shrink: 0;
 }
 
 .banner-img {
