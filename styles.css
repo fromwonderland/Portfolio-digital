@@ -385,7 +385,6 @@ html {
     font-size: 20px;
     line-height: 1.65;
     margin: 0 0 14px 0;
-    align-self: center;
 }
 
 .contact-link {
@@ -927,7 +926,7 @@ html {
     margin: 30px auto;
     max-width: 1000px;
     padding: 0 20px;
-    align-items: flex-start;
+    align-items: center;
 }
 .contact-left {
     flex: 0 0 auto;
@@ -944,7 +943,6 @@ html {
     gap: 15px;
     align-items: center;
     justify-content: center;
-    text-align: center;
 }
 .linkedin-link {
     margin-top: 10px;
