@@ -126,7 +126,7 @@ html {
 }
 
 .window-container--one {
-    --border-color: #2ecc71; /* vert pour la première fenêtre */
+    --border-color: purple; /* vert pour la première fenêtre */
     transform: translateX(-10px);
 }
 
