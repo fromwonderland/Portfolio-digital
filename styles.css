@@ -32,9 +32,9 @@ html {
     top: 0;
     left: 0;
     right: 0;
-    height: 132px;
-    background-color: #000000;
-    z-index: 900;
+    height: 80px;
+    background: #000;
+    z-index: 100;
 }
 
 .loading-overlay {
@@ -939,6 +939,9 @@ html {
     display: flex;
     flex-direction: column;
     gap: 15px;
+}
+.linkedin-link {
+    margin-top: 10px;
 }
 .contact-images {
     display: flex;
