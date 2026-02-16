@@ -568,11 +568,20 @@ html {
     max-width: 200px;
     width: 100%;
     height: auto;
-    border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 8px;
+    border: 2px solid #f0bb85;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.certification-item--altissia {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid #f0bb85;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 .certification-with-desc {
     display: flex;
     flex-direction: column;
