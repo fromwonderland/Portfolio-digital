@@ -410,7 +410,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'IMG_9908.webp',
             'IMG_7231.webp',
             'lights.webp',
-            'ski.webp'
+            'boat.webp'
         ];
         photos.forEach((photoName, index) => {
             const polaroid = document.createElement('div');
