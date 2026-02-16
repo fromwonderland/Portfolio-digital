@@ -243,11 +243,17 @@ html {
 .lightbox-image {
     max-width: 90vw;
     max-height: 90vh;
-    width: auto;
-    height: auto;
+    object-fit: contain;
     border-radius: 8px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-    cursor: default;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+}
+
+.lightbox-video {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.8);
 }
 
 /* Shortcuts (mobile) */
@@ -986,6 +992,7 @@ html {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    cursor: pointer;
 }
 
 @media (max-width: 768px) {
@@ -1026,29 +1033,53 @@ html {
 /* --- Styles pour la section coordonnées --- */
 .contact-section {
     display: flex;
-    gap: 40px;
+    flex-direction: column;
+    gap: 30px;
     margin: 30px auto;
     max-width: 1000px;
     padding: 0 20px;
     align-items: center;
 }
+
+.contact-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
 .contact-left {
     flex: 0 0 auto;
     display: flex;
-    flex-direction: column;
-    gap: 20px;
     align-items: center;
-    justify-content: center;
 }
-.contact-right {
+
+.contact-center {
     flex: 1;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.contact-right {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.social-links {
+    display: flex;
     gap: 15px;
     align-items: center;
     justify-content: center;
 }
+
 .linkedin-link {
+    margin-top: 10px;
+}
+
+.github-link {
     margin-top: 10px;
 }
 .contact-images {
@@ -1059,7 +1090,7 @@ html {
 .contact-img {
     width: auto;
     height: auto;
-    max-width: 100px;
+    max-width: 150px;
     object-fit: contain;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);

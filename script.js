@@ -574,5 +574,31 @@ window.addEventListener('load', function() {
         
         // Forcer le chargement des métadonnées
         video.load();
+        
+        // Ajouter l'effet lightbox pour les vidéos
+        video.addEventListener('click', function () {
+            const overlay = document.createElement('div');
+            overlay.className = 'lightbox-overlay';
+
+            const lightboxVideo = document.createElement('video');
+            lightboxVideo.className = 'lightbox-video';
+            lightboxVideo.src = this.src;
+            lightboxVideo.controls = true;
+            lightboxVideo.autoplay = true;
+            lightboxVideo.muted = false;
+            lightboxVideo.loop = true;
+
+            overlay.appendChild(lightboxVideo);
+            document.body.appendChild(overlay);
+
+            // Fermer au clic
+            lightboxVideo.addEventListener('click', function (ev) { ev.stopPropagation(); });
+            overlay.addEventListener('click', function () { overlay.remove(); });
+
+            function onKey(e) {
+                if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', onKey); }
+            }
+            document.addEventListener('keydown', onKey);
+        });
     });
 });
