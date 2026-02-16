@@ -27,30 +27,11 @@ const projectsData = {
   }
 };
 
-// Fonction pour générer le chemin des images du dossier projet
+// Fonction pour générer le chemin des images du dossier projet (désactivée)
 async function loadProjectImages(projectId, folder) {
-  try {
-    // Essayer de charger les images en cherchant les fichiers courants
-    const extensions = ['.jpg', '.jpeg', '.png', '.webp', '.gif', '.mp4', '.webm'];
-    const images = [];
-    
-    // Essayer de charger jusqu'à 10 fichiers avec des noms numériques
-    for (let i = 1; i <= 10; i++) {
-      for (const ext of extensions) {
-        const imgPath = `${folder}/image${i}${ext}`;
-        const response = await fetch(imgPath, { method: 'HEAD' });
-        if (response.ok) {
-          images.push(imgPath);
-          break;
-        }
-      }
-    }
-    
-    return images;
-  } catch (error) {
-    console.log('Erreur lors du chargement des images:', error);
-    return [];
-  }
+  // Retourner un tableau vide pour éviter les erreurs 404
+  // Nous utilisons maintenant les images spécifiques définies dans openProject
+  return [];
 }
 
 // Fonction pour afficher un extrait de description (350 caractères)
