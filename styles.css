@@ -1017,6 +1017,10 @@ html {
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
+.contact-img--mail {
+    max-width: 180px;
+}
+
 @media (max-width:768px){
     .contact-section {
         flex-direction: column;
