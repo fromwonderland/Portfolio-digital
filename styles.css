@@ -182,8 +182,8 @@ html {
     flex-shrink: 0;
 }
 .cv-download-text {
-    margin-top: 8px;
-    font-size: 17px; /* un peu plus grand */
+    margin-top: 6px;
+    font-size: 14px;
     font-style: italic;
     text-decoration: underline;
     color: #ffffff;
@@ -192,8 +192,8 @@ html {
 
 /* réutilise le style .file-icon mais force une couleur bleue pour ce CTA */
 .cv-file-icon {
-    width: 56px;
-    height: 44px;
+    width: 48px;
+    height: 38px;
     border-radius: 6px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.35);
     background-color: #2f80ed; /* bleu */
@@ -202,10 +202,10 @@ html {
 .cv-file-icon::before {
     content: '';
     position: absolute;
-    top: -6px;
+    top: -5px;
     left: 0;
     width: 60%;
-    height: 9px;
+    height: 8px;
     background-color: #1f6fd6; /* onglet plus foncé */
     border-radius: 6px 6px 0 0;
 }
@@ -381,9 +381,9 @@ html {
 .contact-block {
     text-align: center;
     color: #ffffff;
-    font-size: 20px;
+    font-size: 24px;
     line-height: 1.65;
-    margin: 0 0 14px 0;
+    margin: 0 0 20px 0;
 }
 
 .contact-link {
@@ -986,12 +986,22 @@ html {
     justify-content: center;
 }
 
+.social-links .cv-download-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    flex-shrink: 0;
+    align-self: stretch;
+}
+
 .linkedin-link {
-    margin-top: 10px;
+    margin-top: 0;
 }
 
 .github-link {
-    margin-top: 10px;
+    margin-top: 0;
 }
 .contact-images {
     display: flex;
