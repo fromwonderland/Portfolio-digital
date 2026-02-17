@@ -685,6 +685,15 @@ html {
         object-fit: contain;
         margin: 0 auto;
     }
+    
+    /* Espacement de 2px maximum entre girl_reading et cat_dolls */
+    .aboutme-row:nth-child(1) {
+        margin-bottom: 2px;
+    }
+    
+    .aboutme-row:nth-child(2) {
+        margin-top: 2px;
+    }
 }
 
 /* About me - images inside window containers */
