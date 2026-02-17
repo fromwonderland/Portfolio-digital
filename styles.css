@@ -811,7 +811,7 @@ html {
     display: grid;
     /* Fixer 2 cartes par ligne sur grand écran, bascule à 1 sur petits écrans */
     grid-template-columns: repeat(2, 1fr);
-    gap: 36px;
+    gap: 48px;
     padding: 28px 20px;
     justify-content: center;
     margin: 24px 0;
@@ -963,7 +963,9 @@ html {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     z-index: 2;
     min-height: 320px;
-    max-height: none;
+    max-height: 600px;
+    width: 100%;
+    max-width: 500px;
     height: auto;
     display: flex;
     flex-direction: column;
