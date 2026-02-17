@@ -305,7 +305,6 @@ html {
 
 @media (max-width:900px){
     .icons-container { display: none; }
-    .mobile-menu-toggle { display: block; }
     .shortcuts-toggle { display: flex; }
 }
 
@@ -457,64 +456,6 @@ html {
     display: flex;
     gap: 16px;
     align-items: flex-start;
-}
-
-/* Menu hamburger pour mobile */
-.mobile-menu-toggle {
-    display: none;
-    position: fixed;
-    top: 18px;
-    right: 18px;
-    z-index: 1200;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-}
-
-.mobile-menu-toggle span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: #ffffff;
-    margin: 5px 0;
-    transition: 0.3s;
-    border-radius: 2px;
-}
-
-.mobile-menu-toggle span:nth-child(1) {
-    margin-top: 0;
-}
-
-.mobile-menu {
-    display: none;
-    position: fixed;
-    top: 70px;
-    right: 18px;
-    background: rgba(0, 0, 0, 0.95);
-    border-radius: 8px;
-    padding: 15px;
-    z-index: 1199;
-    min-width: 200px;
-}
-
-.mobile-menu-content {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.mobile-menu-item {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 16px;
-    padding: 8px 12px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-}
-
-.mobile-menu-item:hover {
-    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .icon-link {
