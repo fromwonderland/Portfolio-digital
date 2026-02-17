@@ -228,30 +228,6 @@ html {
 @media (max-width:900px){
     .cv-image-wrap { flex-direction: column; gap: 10px; }
     .cv-image { max-width: 420px; }
-    
-    /* Cacher les icônes de la banière sur mobile */
-    .icons-container { display: none; }
-    .shortcuts-toggle { display: flex; }
-    
-    /* Appliquer la taille mobile des projets aux images */
-    .aboutme-img { width: 100%; max-width: 340px; }
-    .contact-img { max-width: 340px; }
-    
-    /* Disposition des images coordonnées sur mobile */
-    .contact-section {
-        flex-direction: column;
-        gap: 25px;
-    }
-    .contact-content {
-        flex-direction: column;
-        gap: 20px;
-    }
-    .contact-left {
-        align-items: center;
-    }
-    .contact-right {
-        align-items: center;
-    }
 }
 
 @media (max-width:600px){
@@ -694,8 +670,21 @@ html {
 .aboutme-img--right { order: 2; margin-left: 8px; }
 
 @media (max-width:720px){
-    .aboutme-row { flex-direction: column; gap: 12px; }
-    .aboutme-img { width: 100%; max-width: 340px; }
+    .aboutme-row { 
+        flex-direction: row; 
+        gap: 10px; 
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .aboutme-img { 
+        width: 50%; 
+        max-width: 200px;
+        min-height: 320px;
+        max-height: 450px;
+        object-fit: contain;
+        margin: 0 auto;
+    }
 }
 
 /* About me - images inside window containers */
@@ -788,6 +777,55 @@ html {
         grid-template-columns: 1fr;
         padding: 18px 12px;
         gap: 20px;
+    }
+    
+    /* Appliquer la hauteur des cartes projets aux images sur mobile */
+    .cv-image {
+        min-height: 320px;
+        max-height: 450px;
+        object-fit: contain;
+    }
+    
+    .aboutme-img {
+        min-height: 320px;
+        max-height: 450px;
+        object-fit: contain;
+        width: 50%;
+        max-width: 200px;
+        margin: 0 auto;
+    }
+    
+    .aboutme-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    
+    .aboutme-img--left,
+    .aboutme-img--right {
+        order: 0;
+        margin: 0;
+    }
+    
+    .contact-img {
+        min-height: 320px;
+        max-height: 450px;
+        object-fit: contain;
+        width: 100%;
+        max-width: none;
+    }
+    
+    /* Masquer les icônes fichiers-titres de la banière sur mobile */
+    .icons-container {
+        display: none;
+    }
+    
+    /* Afficher uniquement les raccourcis sur mobile */
+    .shortcuts-toggle {
+        display: flex;
     }
     
     .projects-container .project-card {
