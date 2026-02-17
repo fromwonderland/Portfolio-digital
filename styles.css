@@ -228,6 +228,30 @@ html {
 @media (max-width:900px){
     .cv-image-wrap { flex-direction: column; gap: 10px; }
     .cv-image { max-width: 420px; }
+    
+    /* Cacher les icônes de la banière sur mobile */
+    .icons-container { display: none; }
+    .shortcuts-toggle { display: flex; }
+    
+    /* Appliquer la taille mobile des projets aux images */
+    .aboutme-img { width: 100%; max-width: 340px; }
+    .contact-img { max-width: 340px; }
+    
+    /* Disposition des images coordonnées sur mobile */
+    .contact-section {
+        flex-direction: column;
+        gap: 25px;
+    }
+    .contact-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .contact-left {
+        align-items: center;
+    }
+    .contact-right {
+        align-items: center;
+    }
 }
 
 @media (max-width:600px){
