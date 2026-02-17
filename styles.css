@@ -591,7 +591,7 @@ html {
 }
 
 /* Adaptation mobile pour la phrase RECHERCHE STAGE */
-@media (max-width: 720px) and (orientation: portrait) {
+@media (max-width: 720px) {
     .stage-info {
         font-size: 14px;
         white-space: normal;
@@ -612,29 +612,6 @@ html {
     
     .main-text {
         padding-bottom: 50px;
-    }
-}
-
-/* Mode paysage : utiliser la version desktop */
-@media (max-width: 720px) and (orientation: landscape) {
-    .shortcuts-toggle {
-        display: none;
-    }
-    
-    .icons-container {
-        display: flex;
-    }
-    
-    .stage-info {
-        font-size: 18px;
-        white-space: nowrap;
-        text-align: center;
-        padding: 0;
-        margin-bottom: 10px;
-    }
-    
-    .main-text {
-        padding-bottom: 0;
     }
 }
 
@@ -748,7 +725,7 @@ html {
 .aboutme-img--left { order: 0; margin-right: 8px; }
 .aboutme-img--right { order: 2; margin-left: 8px; }
 
-@media (max-width:720px) and (orientation: portrait){
+@media (max-width:720px){
     .aboutme-row { 
         flex-direction: row; 
         gap: 10px; 
@@ -763,23 +740,6 @@ html {
         max-height: 450px;
         object-fit: contain;
         margin: 0 auto;
-    }
-}
-
-/* Mode paysage : version desktop pour aboutme */
-@media (max-width:720px) and (orientation: landscape) {
-    .aboutme-row { 
-        flex-direction: row; 
-        gap: 18px; 
-        align-items: flex-start;
-    }
-    .aboutme-img { 
-        width: 160px; 
-        height: auto;
-        max-width: none;
-        min-height: auto;
-        max-height: auto;
-        object-fit: cover;
     }
 }
 
@@ -868,7 +828,7 @@ html {
 }
 
 /* Responsive: 1 carte par ligne sur écrans étroits */
-@media (max-width: 720px) and (orientation: portrait) {
+@media (max-width: 720px) {
     .projects-container {
         grid-template-columns: 1fr;
         padding: 18px 12px;
@@ -990,50 +950,6 @@ html {
         max-height: none;
         height: auto;
         aspect-ratio: auto;
-    }
-}
-
-/* Mode paysage : version desktop */
-@media (max-width: 720px) and (orientation: landscape) {
-    .contact-section {
-        flex-direction: row;
-        gap: 25px;
-    }
-    
-    .contact-content {
-        flex-direction: row;
-        gap: 25px;
-    }
-    
-    .social-links {
-        order: 0;
-    }
-    
-    .contact-left,
-    .contact-right {
-        order: 1;
-        display: block;
-    }
-    
-    .contact-img {
-        min-height: 320px;
-        max-height: 450px;
-        object-fit: contain;
-        width: 100%;
-        max-width: none;
-    }
-    
-    .projects-container {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 28px 20px;
-        gap: 36px;
-    }
-    
-    .projects-container .project-card {
-        min-height: 320px;
-        max-height: 450px;
-        height: auto;
-        aspect-ratio: 3/2;
     }
 }
 
