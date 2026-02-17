@@ -269,7 +269,21 @@ html {
 .shortcuts-toggle .file-icon {
     width: 34px;
     height: 26px;
-    background-color: #2f80ed;
+    background-color: #ffd700;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.shortcuts-toggle .file-icon::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 0;
+    width: 60%;
+    height: 6px;
+    background-color: #ffcc00;
+    border-radius: 5px 5px 0 0;
 }
 .shortcuts-label {
     font-size: 12px;
@@ -559,6 +573,17 @@ html {
     white-space: nowrap;
 }
 
+/* Adaptation mobile pour la phrase RECHERCHE STAGE */
+@media (max-width: 720px) {
+    .stage-info {
+        font-size: 14px;
+        white-space: normal;
+        text-align: center;
+        padding: 0 10px;
+        line-height: 1.2;
+    }
+}
+
 .stage-search {
     text-decoration: underline;
 }
@@ -684,15 +709,6 @@ html {
         max-height: 450px;
         object-fit: contain;
         margin: 0 auto;
-    }
-    
-    /* Espacement de 2px maximum entre girl_reading et cat_dolls */
-    .aboutme-row:nth-child(1) {
-        margin-bottom: 2px;
-    }
-    
-    .aboutme-row:nth-child(2) {
-        margin-top: 2px;
     }
 }
 
@@ -820,11 +836,72 @@ html {
     }
     
     .contact-img {
-        min-height: 320px;
-        max-height: 450px;
+        min-height: 160px;
+        max-height: 200px;
         object-fit: contain;
+        width: 45%;
+        max-width: 150px;
+    }
+    
+    .contact-section {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .contact-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .social-links {
+        order: 1;
+    }
+    
+    .contact-left,
+    .contact-right {
+        order: 2;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    /* Limiter la largeur des fenêtres de texte */
+    .window-container {
         width: 100%;
-        max-width: none;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin: 0 auto;
+    }
+    
+    .window-body {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    /* Centrer les certifications techniques sur mobile */
+    .certifications-tech-wrapper {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .certifications-list {
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .certification-pix {
+        order: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
     }
     
     /* Masquer les icônes fichiers-titres de la banière sur mobile */
