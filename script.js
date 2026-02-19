@@ -502,7 +502,8 @@ document.addEventListener('DOMContentLoaded', function() {
           'canva.webp',
           'pinterest.webp',
           'latex.webp',
-          'overleaf.webp'
+          'overleaf.webp',
+          'cosmos.webp'
           
         ];
 
