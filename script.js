@@ -487,24 +487,24 @@ document.addEventListener('DOMContentLoaded', function() {
       (function initSkillsGrid(){
         const logos = [
           'C.webp',  
-          'mysql.webp', 
+          'mysql.webp',
+          'java.webp',
           'python.webp',
           'sas.webp',
-          'suiteoffice.webp',
-          'vscode.webp',
-          'figma.webp',          
-          'github.webp',
           'php.webp',
           'html.webp',
           'css.webp',          
           'javascript.webp',
+          'suiteoffice.webp',
+          'vscode.webp',
+          'figma.webp',          
+          'github.webp',
           'notion.webp',
           'canva.webp',
           'pinterest.webp',
-          'latex.webp',
-          'overleaf.webp',
-          'cosmos.webp'
-          
+          'cosmos.webp',
+          'latex.webp'
+          //'overleaf.webp'          
         ];
 
         function renderGrid(){
