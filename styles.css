@@ -163,10 +163,12 @@ html {
     display: block;
     max-width: 540px; /* agrandi 1.5x */
     width: 100%;
-    height: auto;
+    height: 600px; /* hauteur fixe pour le PDF */
     border-radius: 6px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.45);
     flex-shrink: 0;
+    border: none;
+    background: white;
 }
 
 /* Container centré pour l'ensemble image + CTA */
@@ -850,9 +852,9 @@ html {
     
     /* Appliquer la hauteur des cartes projets aux images sur mobile */
     .cv-image {
-        min-height: 320px;
-        max-height: 450px;
-        object-fit: contain;
+        height: 400px; /* hauteur optimisée pour mobile */
+        border: none;
+        background: white;
     }
     
     .aboutme-img {
