@@ -1472,16 +1472,22 @@ html {
     .timeline-date {
         font-size: 12px;
         margin-bottom: 3px;
+        color: #f1b27a !important;
+        font-weight: bold !important;
     }
     
     .timeline-title {
         font-size: 16px;
         margin-bottom: 3px;
+        color: #ffffff !important;
+        font-weight: bold !important;
     }
     
     .timeline-subtitle {
         font-size: 12px;
         margin-bottom: 8px;
+        color: #bdc7ea !important;
+        font-style: italic !important;
     }
     
     .timeline-description {
@@ -1533,14 +1539,20 @@ html {
     
     .timeline-date {
         font-size: 11px;
+        color: #f1b27a !important;
+        font-weight: bold !important;
     }
     
     .timeline-title {
         font-size: 14px;
+        color: #ffffff !important;
+        font-weight: bold !important;
     }
     
     .timeline-subtitle {
         font-size: 11px;
+        color: #bdc7ea !important;
+        font-style: italic !important;
     }
     
     .timeline-description {
