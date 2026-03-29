@@ -908,6 +908,12 @@ html {
     color: #f1b27a;
     font-weight: bold;
     margin-bottom: 5px;
+    pointer-events: none;
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    cursor: default;
 }
 
 .timeline-title {
