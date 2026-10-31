@@ -1221,11 +1221,6 @@ html {
     transition: transform 0.3s ease;
 }
 
-/* Recadrage en bandeau pour une image qui n'est pas une bannière (format des autres bannières) */
-.banner-img--crop {
-    aspect-ratio: 4 / 1;
-}
-
 .project-card:hover .banner-img {
     transform: scale(1.05);
 }

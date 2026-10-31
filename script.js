@@ -100,7 +100,7 @@ function openProject(id) {
     'smartycat': 'projects/SMARTYCAT_culture_generale/baniere_smartycat.webp',
     'compareme': 'projects/COMPAREME_reconnaissance_faciale/baniere_compareme.webp',
     'lacasa': 'projects/LACASA_chat_crypte/baniere_lacasa.webp',
-    'blender': 'projects/BLENDER_modelisation_3d/water_cake.webp'
+    'blender': 'projects/BLENDER_modelisation_3d/blender_baniere.webp'
   };
   
   // Créer et insérer l'image bannière
