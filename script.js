@@ -28,7 +28,8 @@ const projectsData = {
   blender: {
     title: "🧊 BLENDER - Modélisation 3D",
     fullDesc: "Projet personnel de modélisation 3D réalisé avec le logiciel Blender, que je découvre depuis peu en parallèle de mes études.\n\n• Water cake : une part de gâteau dont le cœur est un aquarium miniature (eau translucide, raies, étoiles de mer, galets et algues).\n\nTechnologies : Blender\nStatut : Projet personnel en cours",
-    folder: "projects/blender"
+    folder: "projects/blender",
+    imageMaxWidth: "500px"
   }
 };
 
@@ -144,7 +145,13 @@ function openProject(id) {
   mainImg.style.borderRadius = '8px';
   mainImg.style.marginTop = '20px';
   mainImg.style.cursor = 'zoom-in';
-  
+
+  // Largeur réduite pour les images moins panoramiques que les autres (ex. rendu Blender)
+  if (project.imageMaxWidth) {
+    mainImg.style.maxWidth = project.imageMaxWidth;
+    mainImg.style.justifySelf = 'center';
+  }
+
   // Ajouter l'effet lightbox pour l'image principale
   mainImg.addEventListener('click', function () {
     const overlay = document.createElement('div');
@@ -196,6 +203,19 @@ function openProject(id) {
 function closeProject() {
   document.getElementById('project-modal').classList.remove('show');
 }
+
+function openLetter() {
+  document.getElementById('letter-modal').classList.add('show');
+}
+
+function closeLetter() {
+  document.getElementById('letter-modal').classList.remove('show');
+}
+
+// Fermer la lettre de recommandation avec Échap
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') closeLetter();
+});
 
 // Données des projets originales (legacy)
 const projets = [

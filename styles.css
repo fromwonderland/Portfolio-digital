@@ -441,7 +441,7 @@ html {
     font-size: 17px;
     line-height: 1.65;
     white-space: pre-line;
-    margin: 26px 0 0 0;
+    margin: 26px 0 30px 0;
 }
 
 /* Exclure la banière du style global bold/agrandi */
@@ -1314,6 +1314,33 @@ html {
     height: auto;
     border-radius: 8px;
     border: 1px solid #fb9f1a;
+}
+
+/* Fenêtre de la lettre de recommandation */
+.letter-title {
+    color: #fb9f1a;
+    font-size: 24px;
+    margin: 0 30px 15px 0;
+}
+
+.letter-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Sur mobile, marges réduites pour que la lettre reste lisible */
+@media (max-width: 720px) {
+    #letter-modal .modal-content {
+        width: 94%;
+        padding: 40px 12px 16px 12px;
+    }
+
+    .letter-title {
+        font-size: 19px;
+    }
 }
 
 /* Grille alignée des logos (compétences) */
