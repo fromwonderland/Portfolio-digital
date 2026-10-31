@@ -17,13 +17,18 @@ const projectsData = {
   },
   compareme: {
     title: "🪞 COMPARE ME - COMPARAISON ET RECONNAISSANCE FACIALE",
-    fullDesc: "Application desktop de détection de sosies utilisant une base de donnée constituée de plusieurs centaines de photos pour comparer le visage d'un utilisateur à une base de données de célébrités. L'utilisateur peut capturer une photo via webcam ou importer un fichier, puis l'algorithme analyse et identifie le sosie le plus proche avec un pourcentage de correspondance. L'application génère également un certificat de sosie personnalisé au format PDF.\n\nMon rôle : Développement de l'interface graphique (Tkinter), implémentation de l'algorithme de reconnaissance faciale (DeepFace, OpenCV), gestion de la base de données d'images (Kaggle), calculs de similarité (Numpy), et création de l'expérience utilisateur complète (barre de progression, affichage résultats, export PDF).\n\nTechnologies : Python, DeepFace, OpenCV, Numpy, Tkinter, Threading, FPDF, Kaggle\nStatut : Application desktop fonctionnelle en local",
+    fullDesc: "Application desktop de détection de sosies utilisant une base de données constituée de plusieurs centaines de photos pour comparer le visage d'un utilisateur à une base de données de célébrités. L'utilisateur peut capturer une photo via webcam ou importer un fichier, puis l'algorithme analyse et identifie le sosie le plus proche avec un pourcentage de correspondance. L'application génère également un certificat de sosie personnalisé au format PDF.\n\nMon rôle : Développement de l'interface graphique (Tkinter), implémentation de l'algorithme de reconnaissance faciale (DeepFace, OpenCV), gestion de la base de données d'images (Kaggle), calculs de similarité (Numpy), et création de l'expérience utilisateur complète (barre de progression, affichage résultats, export PDF).\n\nTechnologies : Python, DeepFace, OpenCV, Numpy, Tkinter, Threading, FPDF, Kaggle\nStatut : Application desktop fonctionnelle en local",
     folder: "projects/compareme"
   },
   lacasa: {
     title: "📝 LACASA - chat crypté",
     fullDesc: "Application de messagerie instantanée sécurisée permettant la communication multi-utilisateurs en temps réel avec chiffrement des conversations. Communication & recherche : chat temps réel multi-utilisateurs, fonction de recherche dans l'historique des messages, support d'émojis pour enrichir les conversations.\n\nIntelligence artificielle : assistant IA intégré (Ollama) directement interpellable au sein du chat pour assistance contextuelle. Personnalisation complète : création de comptes utilisateurs, customisation totale de l'interface (fonds d'écran, polices, palettes de couleurs) pour une expérience utilisateur unique. Sécurité : chiffrement des messages pour garantir la confidentialité des échanges.\n\nMon rôle : Développement backend Python pour la logique de messagerie et le chiffrement, implémentation de l'interface utilisateur (HTML/CSS), intégration de l'IA conversationnelle (Ollama), gestion de la personnalisation et des préférences utilisateurs, et documentation technique complète.\n\nTechnologies : Python, HTML/CSS, Ollama (IA), GitHub\nStatut : Application fonctionnelle avec IA intégrée",
     folder: "projects/lacasa"
+  },
+  blender: {
+    title: "🧊 BLENDER - Modélisation 3D",
+    fullDesc: "Projet personnel de modélisation 3D réalisé avec le logiciel Blender, que je découvre depuis peu en parallèle de mes études.\n\n• Water cake : une part de gâteau dont le cœur est un aquarium miniature (eau translucide, raies, étoiles de mer, galets et algues).\n\nTechnologies : Blender\nStatut : Projet personnel en cours",
+    folder: "projects/blender"
   }
 };
 
@@ -94,7 +99,8 @@ function openProject(id) {
     'keyper': 'projects/KEYPER_gestion_de_foyer/baniere_keyper.webp',
     'smartycat': 'projects/SMARTYCAT_culture_generale/baniere_smartycat.webp',
     'compareme': 'projects/COMPAREME_reconnaissance_faciale/baniere_compareme.webp',
-    'lacasa': 'projects/LACASA_chat_crypte/baniere_lacasa.webp'
+    'lacasa': 'projects/LACASA_chat_crypte/baniere_lacasa.webp',
+    'blender': 'projects/BLENDER_modelisation_3d/water_cake.webp'
   };
   
   // Créer et insérer l'image bannière
@@ -126,7 +132,8 @@ function openProject(id) {
     'keyper': 'projects/KEYPER_gestion_de_foyer/keyper.webp',
     'smartycat': 'projects/SMARTYCAT_culture_generale/smartycat.webp',
     'compareme': 'projects/COMPAREME_reconnaissance_faciale/compareme.webp',
-    'lacasa': 'projects/LACASA_chat_crypte/lacasa.webp'
+    'lacasa': 'projects/LACASA_chat_crypte/lacasa.webp',
+    'blender': 'projects/BLENDER_modelisation_3d/water_cake.webp'
   };
   
   const mainImg = document.createElement('img');
@@ -540,14 +547,4 @@ window.addEventListener('load', function() {
 
     const overlay = document.getElementById('loading-overlay');
     if (overlay) overlay.remove();
-
-    // Afficher la date de dernière mise à jour
-    const updateDateElement = document.getElementById('update-date');
-    if (updateDateElement) {
-        const now = new Date();
-        const day = String(now.getDate()).padStart(2, '0');
-        const month = String(now.getMonth() + 1).padStart(2, '0');
-        const year = now.getFullYear();
-        updateDateElement.textContent = `${day}/${month}/${year}`;
-    }
 });
