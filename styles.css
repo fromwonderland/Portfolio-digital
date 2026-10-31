@@ -829,7 +829,7 @@ html {
 .timeline-item:nth-child(odd) .timeline-content {
     margin-right: 50%;
     padding-right: 30px;
-    text-align: right;
+    text-align: left;
 }
 
 .timeline-item:nth-child(even) .timeline-content {
@@ -1328,7 +1328,7 @@ html {
     width: 100%;
     height: auto;
     border-radius: 8px;
-    margin-bottom: 15px;
+    margin-top: 10px;
 }
 
 /* Sur mobile, marges réduites pour que la lettre reste lisible */
