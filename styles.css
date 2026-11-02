@@ -336,11 +336,6 @@ html {
 }
 .shortcuts-menu .icon-title { color: #ffffff; text-decoration: none; text-align: left; max-width: 12rem; }
 
-@media (max-width:900px){
-    .icons-container { display: none; }
-    .shortcuts-toggle { display: flex; }
-}
-
 .window-header {
     background-color: var(--header-color);
     height: 32px;
@@ -420,6 +415,13 @@ html {
     display: flex;
     gap: 16px;
     align-items: flex-start;
+}
+
+/* Écrans de 900 px et moins (tablette, mobile) : icônes remplacées par le menu « Raccourcis ».
+   Doit rester APRÈS la règle .icons-container ci-dessus, sinon son display: flex l'emporte. */
+@media (max-width:900px){
+    .icons-container { display: none; }
+    .shortcuts-toggle { display: flex; }
 }
 
 .icon-link {
@@ -984,11 +986,6 @@ html {
         justify-content: center;
         align-items: center;
         margin-top: 10px;
-    }
-
-    /* Masquer les icônes fichiers-titres de la bannière sur mobile */
-    .icons-container {
-        display: none;
     }
 
     .projects-container .project-card {
