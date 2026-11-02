@@ -156,9 +156,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Rendre visibles les URLs au survol via l'attribut title (utile pour voir le lien au niveau de la souris)
+    // Rendre visibles les URLs au survol via l'attribut title (sauf pour les liens vers les sections de la page)
     document.querySelectorAll('a[href]').forEach(a => {
-        if (!a.getAttribute('title')) a.setAttribute('title', a.getAttribute('href'));
+        const href = a.getAttribute('href');
+        if (!a.getAttribute('title') && !href.startsWith('#')) a.setAttribute('title', href);
     });
 
     // --- Lightbox pour agrandir les images de certifications ---
@@ -245,46 +246,64 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // --- Raccourcis (menu mobile) ---
-    const shortcutsToggle = document.getElementById('shortcuts-toggle');
-    const shortcutsMenu = document.getElementById('shortcuts-menu');
-    const iconsContainer = document.querySelector('.icons-container');
-    if (shortcutsToggle && shortcutsMenu && iconsContainer) {
-        // cloner les liens d'icônes dans le menu raccourcis
-        iconsContainer.querySelectorAll('.icon-link').forEach(link => {
-            const clone = link.cloneNode(true);
-            clone.classList.add('shortcut-item');
-            shortcutsMenu.appendChild(clone);
-        });
+    // --- Banderole : version compacte au défilement, dossier de la section en cours « ouvert » ---
+    const header = document.getElementById('site-header');
+    if (header) {
+        const root = document.documentElement;
+        const folders = [...header.querySelectorAll('.folder')];
+        const targets = folders.map(folder => document.querySelector(folder.getAttribute('href')));
 
-        function closeShortcuts() {
-            shortcutsMenu.classList.remove('open');
-            shortcutsMenu.setAttribute('aria-hidden', 'true');
-            shortcutsToggle.setAttribute('aria-expanded', 'false');
+        // Mesure les hauteurs complète et compacte de la banderole (sans animation) :
+        // elles décalent le contenu (--header-full) et l'arrivée des ancres (--header-compact)
+        function measureHeader() {
+            const wasCompact = header.classList.contains('is-compact');
+            header.classList.add('is-measuring');
+            header.classList.remove('is-compact');
+            root.style.setProperty('--header-full', header.offsetHeight + 'px');
+            header.classList.add('is-compact');
+            root.style.setProperty('--header-compact', header.offsetHeight + 'px');
+            header.classList.toggle('is-compact', wasCompact);
+            void header.offsetHeight; // applique l'état avant de réactiver les animations
+            header.classList.remove('is-measuring');
         }
 
-        function openShortcuts() {
-            shortcutsMenu.classList.add('open');
-            shortcutsMenu.setAttribute('aria-hidden', 'false');
-            shortcutsToggle.setAttribute('aria-expanded', 'true');
+        function updateHeader() {
+            header.classList.toggle('is-compact', window.scrollY > 40);
+
+            // Section en cours : le dernier titre passé sous la banderole (la dernière section en bas de page)
+            const limit = header.offsetHeight + 40;
+            let active = 0;
+            targets.forEach((target, i) => {
+                if (target && target.getBoundingClientRect().top <= limit) active = i;
+            });
+            if (window.innerHeight + window.scrollY >= root.scrollHeight - 2) active = targets.length - 1;
+
+            folders.forEach((folder, i) => {
+                folder.classList.toggle('is-active', i === active);
+                if (i === active) folder.setAttribute('aria-current', 'location');
+                else folder.removeAttribute('aria-current');
+            });
         }
 
-        shortcutsToggle.addEventListener('click', function (e) {
-            e.stopPropagation();
-            if (shortcutsMenu.classList.contains('open')) closeShortcuts(); else openShortcuts();
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(() => {
+                ticking = false;
+                updateHeader();
+            });
+        }, { passive: true });
+        window.addEventListener('resize', () => {
+            measureHeader();
+            updateHeader();
         });
-        shortcutsToggle.addEventListener('keydown', function (e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                shortcutsToggle.click();
-            }
+        window.addEventListener('load', () => {
+            measureHeader();
+            updateHeader();
         });
-
-        // fermer le menu si on clique en dehors
-        document.addEventListener('click', function (e) {
-            if (!shortcutsMenu.classList.contains('open')) return;
-            if (!shortcutsMenu.contains(e.target) && !shortcutsToggle.contains(e.target)) closeShortcuts();
-        });
+        measureHeader();
+        updateHeader();
     }
 });
 

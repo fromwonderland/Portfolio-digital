@@ -18,56 +18,39 @@
     </div>
 
     <div class="app" id="app">
-        <div class="top-banner" aria-hidden="true"></div>
-        <div class="content">
-            <div class="main-text" id="main-text">
-                <div class="header-title">Camilia SABA/Portfolio</div>
-                <div class="stage-info stage-search"><br>Master MIAGE en alternance – Université Paris Nanterre <br>Apprentie développeuse à la STIME (DSI des Mousquetaires)</div>
+        <!-- Banderole : nom, situation actuelle et dossiers des sections (couleur propre à chaque dossier) -->
+        <header class="site-header" id="site-header">
+            <div class="site-identity">
+                <h1 class="site-name">Camilia SABA</h1>
+                <p class="site-status">Master MIAGE en alternance · <span class="hide-phone">Apprentie développeuse à la </span>STIME</p>
             </div>
-
-            <div class="icons-container" aria-label="Navigation">
-                <a class="icon-link" href="#about-me">
-                    <div class="icon-item">
-                        <div class="file-icon"></div>
-                        <div class="icon-title">About me</div>
-                    </div>
+            <nav class="site-nav" aria-label="Sections du portfolio">
+                <a class="folder" href="#about-me" style="--folder: #7FBF9A; --folder-tab: #6FBF8A;">
+                    <span class="folder-icon" aria-hidden="true"></span>
+                    <span class="folder-label"><span class="label-long">À propos</span><span class="label-short">Moi</span></span>
                 </a>
-                <a class="icon-link" href="#mon-cv">
-                    <div class="icon-item">
-                        <div class="file-icon"></div>
-                        <div class="icon-title">Mes compétences, <br>mon CV</div>
-                    </div>
+                <a class="folder" href="#mon-cv" style="--folder: #B097E6; --folder-tab: #9B84E6;">
+                    <span class="folder-icon" aria-hidden="true"></span>
+                    <span class="folder-label"><span class="label-long">Compétences et CV</span><span class="label-short">CV</span></span>
                 </a>
-                <a class="icon-link" href="#projets">
-                    <div class="icon-item">
-                        <div class="file-icon"></div>
-                        <div class="icon-title">Projets académiques <br>et personnels</div>
-                    </div>
+                <a class="folder" href="#projets" style="--folder: #9BB6E6; --folder-tab: #89AEEF;">
+                    <span class="folder-icon" aria-hidden="true"></span>
+                    <span class="folder-label">Projets</span>
                 </a>
-                <a class="icon-link" href="#hobbies">
-                    <div class="icon-item">
-                        <div class="file-icon"></div>
-                        <div class="icon-title">Hobbies, centres d'intérêt</div>
-                    </div>
+                <a class="folder" href="#hobbies" style="--folder: #FFB07A; --folder-tab: #FF9B5A;">
+                    <span class="folder-icon" aria-hidden="true"></span>
+                    <span class="folder-label">Hobbies</span>
                 </a>
-                <a class="icon-link" href="#coordonnees">
-                    <div class="icon-item">
-                        <div class="file-icon"></div>
-                        <div class="icon-title">Mes Coordonnées</div>
-                    </div>
+                <a class="folder" href="#coordonnees" style="--folder: #FFD34A; --folder-tab: #FFC43A;">
+                    <span class="folder-icon" aria-hidden="true"></span>
+                    <span class="folder-label">Contact</span>
                 </a>
-            </div>
-            <!-- Toggle et menu pour mobile (raccourcis) -->
-            <div class="shortcuts-toggle" id="shortcuts-toggle" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">
-                <div class="file-icon" aria-hidden="true"></div>
-                <div class="shortcuts-label">Raccourcis</div>
-            </div>
-            <nav class="shortcuts-menu" id="shortcuts-menu" aria-hidden="true"></nav>
-        </div>
+            </nav>
+        </header>
 
         <main class="page">
             <section class="section">
-            <h1 class="section-title" id="about-me">☆ About me...</h1>
+            <h2 class="section-title" id="about-me">☆ About me...</h2>
             <div class="aboutme-row">
                 <img class="aboutme-img aboutme-img--left" src="aboutme_section/camilia.webp" alt="Camilia">
                 <div class="window-container window-container--one">

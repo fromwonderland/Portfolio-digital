@@ -19,23 +19,14 @@ body {
 
 html {
     scroll-behavior: smooth;
+    /* Les ancres s'arrêtent sous la banderole compacte (hauteur mesurée par script.js) */
+    scroll-padding-top: calc(var(--header-compact, 64px) + 12px);
 }
 
 :root {
     --bg-color: #eee9cf;
     --border-color: #2d2a4a;
     --header-color: #f1b27a;
-}
-
-.top-banner {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 140px;
-    background: #000;
-    z-index: 100;
-    border-bottom: 2px solid #bdc7ea;
 }
 
 .loading-overlay {
@@ -83,7 +74,7 @@ html {
 }
 
 .page {
-    padding-top: 170px;
+    padding-top: calc(var(--header-full, 120px) + 28px); /* hauteur de la banderole + marge */
     padding-left: 18px;
     padding-right: 18px;
 }
@@ -98,7 +89,6 @@ html {
     font-size: 30px;
     font-weight: 400;
     margin: 0 0 18px 0;
-    scroll-margin-top: 170px;
 }
 
 .section-title--center {
@@ -197,7 +187,7 @@ html {
     white-space: nowrap;
 }
 
-/* réutilise le style .file-icon mais force une couleur bleue pour ce CTA */
+/* Icône de dossier bleue des boutons « Voir mon CV » et « LinkedIn » */
 .cv-file-icon {
     width: 48px;
     height: 38px;
@@ -254,87 +244,6 @@ html {
     border-radius: 8px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.8);
 }
-
-/* Shortcuts (mobile) */
-.shortcuts-toggle {
-    display: none;
-    position: fixed;
-    top: 18px;
-    right: 18px;
-    z-index: 1200;
-    align-items: center;
-    flex-direction: column;
-    gap: 6px;
-    color: #ffffff;
-    cursor: pointer;
-}
-.shortcuts-toggle .file-icon {
-    width: 34px;
-    height: 26px;
-    background-color: #ffd700;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    position: relative;
-}
-
-.shortcuts-toggle .file-icon::before {
-    content: '';
-    position: absolute;
-    top: -4px;
-    left: 0;
-    width: 60%;
-    height: 6px;
-    background-color: #ffcc00;
-    border-radius: 5px 5px 0 0;
-}
-.shortcuts-label {
-    font-size: 12px;
-    color: #ffffff;
-}
-.shortcuts-menu {
-    display: none;
-    position: fixed;
-    top: 62px;
-    right: 18px;
-    z-index: 1200;
-    background: rgba(10,10,10,0.96);
-    border-radius: 8px;
-    padding: 8px;
-    min-width: 220px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
-}
-.shortcuts-menu.open { display: block; }
-.shortcuts-menu .icon-link {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 8px;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 6px;
-}
-.shortcuts-menu .icon-link + .icon-link { margin-top: 6px; }
-.shortcuts-menu .icon-link:hover { background: rgba(255,255,255,0.03); }
-.shortcuts-menu .icon-item { flex-direction: row; align-items: center; }
-.shortcuts-menu .file-icon {
-    width: 32px;
-    height: 24px;
-    border-radius: 6px;
-    background-color: #ffd700;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-}
-
-.shortcuts-menu .file-icon::before {
-    content: '';
-    position: absolute;
-    top: -4px;
-    left: 0;
-    width: 60%;
-    height: 6px;
-    background-color: #ffcc00;
-    border-radius: 6px 6px 0 0;
-}
-.shortcuts-menu .icon-title { color: #ffffff; text-decoration: none; text-align: left; max-width: 12rem; }
 
 .window-header {
     background-color: var(--header-color);
@@ -394,157 +303,277 @@ html {
     margin: 26px 0 30px 0;
 }
 
-.content {
-    width: 100%;
-}
-
-.main-text {
+/* --- Banderole : nom, situation actuelle et dossiers des sections ---
+   Fixée en haut de l'écran. Ses hauteurs (complète et compacte) sont mesurées par
+   script.js (--header-full, --header-compact) pour décaler le contenu et les ancres. */
+.site-header {
     position: fixed;
-    top: 18px;
-    left: 18px;
-    text-align: left;
-    z-index: 1000;
-}
-
-/* Icônes en arc */
-.icons-container {
-    position: fixed;
-    top: 18px;
-    right: 25px;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
     display: flex;
-    gap: 16px;
-    align-items: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px 24px;
+    padding: 16px 24px;
+    background: #000;
+    border-bottom: 2px solid #bdc7ea;
+    transition: padding 0.25s ease;
 }
 
-/* Écrans de 900 px et moins (tablette, mobile) : icônes remplacées par le menu « Raccourcis ».
-   Doit rester APRÈS la règle .icons-container ci-dessus, sinon son display: flex l'emporte. */
-@media (max-width:900px){
-    .icons-container { display: none; }
-    .shortcuts-toggle { display: flex; }
+.site-identity {
+    min-width: 0;
 }
 
-.icon-link {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
+.site-name {
+    margin: 0;
+    color: #fb9f1a;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.15;
+    transition: font-size 0.25s ease;
 }
 
-.icon-item {
+.site-status {
+    display: inline-block;
+    margin: 8px 0 0 0;
+    padding: 3px 12px;
+    border: 1px solid #bdc7ea;
+    border-radius: 999px;
+    color: #bdc7ea;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.site-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+}
+
+/* Dossier : sa couleur vient des variables --folder et --folder-tab posées sur le lien */
+.folder {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    min-height: 80px;
-    justify-content: center;
+    gap: 6px;
+    min-width: 70px;
+    padding: 4px 6px;
+    border-radius: 6px;
+    color: #ffffff;
+    text-decoration: none;
 }
 
-.file-icon {
+.folder-icon {
+    position: relative;
     width: 44px;
     height: 34px;
-    position: relative;
-    margin-bottom: 6px;
-    background-color: #7FAF45; /* Couleur de base du dossier (plus foncée) */
-    border-radius: 5px; /* Bords arrondis */
+    margin-top: 4px;
+    border-radius: 5px;
+    background-color: var(--folder-tab);
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    overflow: visible;
-    z-index: 1;
+    transition: width 0.25s ease, height 0.25s ease, transform 0.2s ease;
 }
 
-.file-icon::before {
+/* Onglet du dossier */
+.folder-icon::before {
     content: '';
     position: absolute;
     top: -4px;
     left: 0;
     width: 60%;
     height: 7px;
-    background-color: #6F943A; /* Onglet du dossier, légèrement plus foncé */
     border-radius: 5px 5px 0 0;
-    z-index: -2;
-    opacity: 0.7;
-    filter: brightness(0.9) saturate(0.9);
+    background-color: var(--folder-tab);
 }
 
-.file-icon::after {
+/* Face avant du dossier : elle bascule vers l'avant quand le dossier « s'ouvre » */
+.folder-icon::after {
     content: '';
     position: absolute;
+    top: 15%;
+    right: 0;
     bottom: 0;
     left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: rgba(0,0,0,0.1); /* Ombre légère en bas */
-    border-radius: 0 0 5px 5px;
+    border-radius: 4px 4px 5px 5px;
+    background-color: var(--folder);
+    transform-origin: bottom;
+    transition: transform 0.25s ease;
 }
 
-/* Couleurs différentes pour chaque icône — ciblage sur les liens enfants de .icons-container */
-.icons-container > .icon-link:nth-child(1) .file-icon { background-color: #7FBF9A; }
-.icons-container > .icon-link:nth-child(1) .file-icon::before { background-color: #6FBF8A; }
+.folder:hover .folder-icon {
+    transform: translateY(-2px);
+}
 
-.icons-container > .icon-link:nth-child(2) .file-icon { background-color: #B097E6; }
-.icons-container > .icon-link:nth-child(2) .file-icon::before { background-color: #9B84E6; }
+/* Dossier de la section en cours de lecture */
+.folder.is-active .folder-icon::after {
+    transform: perspective(60px) rotateX(-35deg);
+}
 
-.icons-container > .icon-link:nth-child(3) .file-icon { background-color: #9BB6E6; }
-.icons-container > .icon-link:nth-child(3) .file-icon::before { background-color: #89AEEF; }
-
-.icons-container > .icon-link:nth-child(4) .file-icon { background-color: #FFB07A; }
-.icons-container > .icon-link:nth-child(4) .file-icon::before { background-color: #FF9B5A; }
-
-.icons-container > .icon-link:nth-child(5) .file-icon { background-color: #FFD34A; }
-.icons-container > .icon-link:nth-child(5) .file-icon::before { background-color: #FFC43A; }
-
-.icon-title {
-    color: #ffffff;
-    font-size: 15.1px;
+.folder-label {
+    max-width: 12ch;
+    font-size: 15px;
     font-style: italic;
-    text-decoration: underline;
-    text-align: center;
-    white-space: normal;
-    max-width: 20ch;
-    word-break: normal;
-    overflow-wrap: normal;
     line-height: 1.2;
-    min-height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.header-title {
-    color: #fb9f1a;
-    font-size: 28px;
-    margin-bottom: 10px;
-    white-space: nowrap;
-}
-
-.stage-info {
-    color: #fb9f1a;
-    font-size: 18px;
-    line-height: 1.4;
-    margin-bottom: 10px;
-    white-space: nowrap;
-}
-
-/* Adaptation mobile du bandeau (situation actuelle) */
-@media (max-width: 720px) {
-    .stage-info {
-        font-size: 14px;
-        white-space: normal;
-        text-align: left;
-        padding: 0 60px 0 20px;
-        line-height: 1.2;
-        margin-bottom: 10px;
-        position: relative;
-        z-index: 1;
-    }
-
-    .main-text {
-        padding-bottom: 50px;
-    }
-}
-
-.stage-search {
+    text-align: center;
     text-decoration: underline;
+}
+
+.folder.is-active .folder-label {
+    color: #fb9f1a;
+}
+
+.folder:focus-visible {
+    outline: 2px solid #fb9f1a;
+    outline-offset: 2px;
+}
+
+.label-short {
+    display: none;
+}
+
+/* Banderole compacte, après un léger défilement */
+.site-header.is-compact {
+    padding: 8px 24px;
+}
+
+.site-header.is-compact .site-name {
+    font-size: 20px;
+}
+
+.site-header.is-compact .site-status {
+    display: none;
+}
+
+.site-header.is-compact .folder {
+    flex-direction: row;
+    gap: 6px;
+    min-width: 0;
+}
+
+.site-header.is-compact .folder-icon {
+    width: 22px;
+    height: 17px;
+    margin-top: 2px;
+}
+
+.site-header.is-compact .folder-icon::before {
+    top: -3px;
+    height: 4px;
+}
+
+.site-header.is-compact .folder.is-active .folder-icon::after {
+    transform: perspective(30px) rotateX(-35deg);
+}
+
+.site-header.is-compact .folder-label {
+    max-width: none;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+/* Pendant la mesure des hauteurs par script.js : aucune animation */
+.site-header.is-measuring,
+.site-header.is-measuring *,
+.site-header.is-measuring *::before,
+.site-header.is-measuring *::after {
+    transition: none;
+}
+
+/* Téléphone : nom et situation en haut, dossiers dans une barre des tâches en bas de l'écran */
+@media (max-width: 600px) {
+    .site-header,
+    .site-header.is-compact {
+        padding: 10px 16px;
+    }
+
+    .site-name {
+        font-size: 22px;
+    }
+
+    .site-header.is-compact .site-name {
+        font-size: 18px;
+    }
+
+    .site-status {
+        margin-top: 4px;
+        padding: 2px 10px;
+        font-size: 12px;
+    }
+
+    .hide-phone {
+        display: none;
+    }
+
+    .site-nav {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        gap: 0;
+        padding: 6px 4px 8px;
+        background: #0d0d12;
+        border-top: 2px solid #bdc7ea;
+    }
+
+    .folder,
+    .site-header.is-compact .folder {
+        flex-direction: column;
+        gap: 4px;
+        min-width: 0;
+        padding: 2px 4px;
+    }
+
+    .folder-icon,
+    .site-header.is-compact .folder-icon {
+        width: 28px;
+        height: 21px;
+        margin-top: 3px;
+    }
+
+    .folder-icon::before,
+    .site-header.is-compact .folder-icon::before {
+        top: -3px;
+        height: 5px;
+    }
+
+    .folder.is-active .folder-icon::after,
+    .site-header.is-compact .folder.is-active .folder-icon::after {
+        transform: perspective(36px) rotateX(-35deg);
+    }
+
+    .folder-label,
+    .site-header.is-compact .folder-label {
+        max-width: none;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    .label-long {
+        display: none;
+    }
+
+    .label-short {
+        display: inline;
+    }
+
+    /* Laisser la place de la barre des tâches sous le contenu */
+    .page {
+        padding-bottom: 76px;
+    }
+}
+
+/* Visiteurs ayant demandé moins d'animations dans leur système */
+@media (prefers-reduced-motion: reduce) {
+    .site-header,
+    .site-header *,
+    .site-header *::after {
+        transition: none;
+    }
 }
 
 /* Galeries de certifications */
