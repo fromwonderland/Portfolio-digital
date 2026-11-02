@@ -75,8 +75,8 @@ html {
 
 .page {
     padding-top: calc(var(--header-full, 120px) + 28px); /* hauteur de la banderole + marge */
-    padding-left: 18px;
-    padding-right: 18px;
+    padding-left: calc(18px + env(safe-area-inset-left));
+    padding-right: calc(18px + env(safe-area-inset-right));
 }
 
 .section {
@@ -317,7 +317,7 @@ html {
     align-items: center;
     justify-content: space-between;
     gap: 10px 24px;
-    padding: 16px 24px;
+    padding: calc(16px + env(safe-area-inset-top)) calc(24px + env(safe-area-inset-right)) 16px calc(24px + env(safe-area-inset-left));
     background: #000;
     border-bottom: 2px solid #bdc7ea;
     transition: padding 0.25s ease;
@@ -436,7 +436,7 @@ html {
 
 /* Banderole compacte, après un léger défilement */
 .site-header.is-compact {
-    padding: 8px 24px;
+    padding: calc(8px + env(safe-area-inset-top)) calc(24px + env(safe-area-inset-right)) 8px calc(24px + env(safe-area-inset-left));
 }
 
 .site-header.is-compact .site-name {
@@ -486,7 +486,7 @@ html {
 @media (max-width: 600px) {
     .site-header,
     .site-header.is-compact {
-        padding: 10px 16px;
+        padding: calc(10px + env(safe-area-inset-top)) calc(16px + env(safe-area-inset-right)) 10px calc(16px + env(safe-area-inset-left));
     }
 
     .site-name {
@@ -515,7 +515,7 @@ html {
         flex-wrap: nowrap;
         justify-content: space-around;
         gap: 0;
-        padding: 6px 4px 8px;
+        padding: 6px calc(4px + env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom)) calc(4px + env(safe-area-inset-left));
         background: #0d0d12;
         border-top: 2px solid #bdc7ea;
     }
@@ -563,7 +563,7 @@ html {
 
     /* Laisser la place de la barre des tâches sous le contenu */
     .page {
-        padding-bottom: 76px;
+        padding-bottom: calc(76px + env(safe-area-inset-bottom));
     }
 }
 
@@ -1704,5 +1704,40 @@ html {
         font-size: 14px;
         font-style: italic;
         text-align: center;
+    }
+}
+
+/* ==========================================================================
+   Téléphone (600 px et moins) — lot 4 : finitions
+   ========================================================================== */
+@media (max-width: 600px) {
+    /* Titres de section un peu plus petits */
+    .section-title {
+        font-size: 24px;
+    }
+
+    /* Paragraphes longs alignés à gauche, sans les retours à la ligne du code source */
+    .section-text,
+    .section-text--center {
+        text-align: left;
+        white-space: normal;
+    }
+
+    /* Dossiers de la barre des tâches : zone tactile d'au moins 56 px de large */
+    .folder,
+    .site-header.is-compact .folder {
+        min-width: 56px;
+    }
+
+    /* Fenêtres plein écran : croix et contenu hors des zones réservées de l'iPhone */
+    .modal-close {
+        top: calc(10px + env(safe-area-inset-top));
+        right: calc(10px + env(safe-area-inset-right));
+    }
+
+    .modal-content,
+    #letter-modal .modal-content {
+        padding-top: calc(64px + env(safe-area-inset-top));
+        padding-bottom: calc(24px + env(safe-area-inset-bottom));
     }
 }
