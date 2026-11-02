@@ -211,6 +211,8 @@ document.addEventListener('DOMContentLoaded', function () {
             img.className = 'photo-item';
             img.src = `photographie/${encodeURI(photoName)}`;
             img.alt = photoName;
+            img.loading = 'lazy';
+            img.decoding = 'async';
             img.style.cursor = 'zoom-in';
             img.addEventListener('click', function () {
                 openLightbox(img.src, img.alt || 'Photo');
@@ -249,6 +251,7 @@ document.addEventListener('DOMContentLoaded', function () {
             img.src = encodeURI('competences_logos/' + name);
             img.alt = name.replace(/\.[^/.]+$/, '');
             img.loading = 'lazy';
+            img.decoding = 'async';
             img.title = img.alt;
             skillsCloud.appendChild(img);
         });
