@@ -156,11 +156,19 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Rendre visibles les URLs au survol via l'attribut title (sauf pour les liens vers les sections de la page)
+    // Rendre visibles les URLs au survol via l'attribut title (sauf liens vers les sections, mail et téléphone)
     document.querySelectorAll('a[href]').forEach(a => {
         const href = a.getAttribute('href');
-        if (!a.getAttribute('title') && !href.startsWith('#')) a.setAttribute('title', href);
+        if (!a.getAttribute('title') && !/^(#|mailto:|tel:)/.test(href)) a.setAttribute('title', href);
     });
+
+    // --- Aperçu du CV (téléphone) : agrandissable au clic ---
+    const cvPreview = document.querySelector('.cv-preview');
+    if (cvPreview) {
+        cvPreview.addEventListener('click', function () {
+            openLightbox(cvPreview.src, cvPreview.alt);
+        });
+    }
 
     // --- Lightbox pour agrandir les images de certifications ---
     document.querySelectorAll('.certification-item').forEach(img => {
