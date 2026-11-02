@@ -1174,6 +1174,23 @@ html {
     border: 1px solid #fb9f1a;
 }
 
+/* Images ajoutées par openProject() : bannière sous le titre, image principale agrandissable */
+.modal-banner {
+    display: block;
+    width: 50%;
+    height: auto;
+    max-height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 0 auto 20px auto;
+}
+
+.modal-grid .modal-main-image {
+    max-width: 100%;
+    margin-top: 20px;
+    cursor: zoom-in;
+}
+
 /* Fenêtre de la lettre de recommandation */
 .letter-title {
     color: #fb9f1a;
