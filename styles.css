@@ -1589,3 +1589,120 @@ html {
         font-size: 14px;
     }
 }
+
+/* ==========================================================================
+   Téléphone (600 px et moins) — lot 2 : moins de défilement
+   ========================================================================== */
+.gallery-hint {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    /* About me et Hobbies : images décoratives en vignettes au-dessus du texte */
+    .aboutme-row {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        padding: 0;
+    }
+
+    .aboutme-row > .window-container {
+        grid-column: 1 / -1;
+        order: 3;
+    }
+
+    .aboutme-img,
+    .aboutme-img--left,
+    .aboutme-img--right {
+        width: 100%;
+        max-width: none;
+        height: 200px;
+        min-height: 0;
+        max-height: none;
+        margin: 0;
+        object-fit: cover;
+        order: 0;
+    }
+
+    /* Une seule image dans la rangée : vignette panoramique sur toute la largeur */
+    .aboutme-img:only-of-type {
+        grid-column: 1 / -1;
+        height: 140px;
+    }
+
+    /* Certifications sur deux colonnes (elles s'empilaient une par ligne) */
+    .certifications-gallery,
+    .certifications-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        width: 100%;
+        align-items: start;
+    }
+
+    .certifications-gallery .certification-item,
+    .certifications-list .certification-item {
+        width: 100%;
+        max-width: none;
+    }
+
+    .certification-desc {
+        max-width: none;
+        font-size: 13px;
+    }
+
+    /* Cartes projets : extrait limité à 4 lignes, la fiche complète s'ouvre au toucher */
+    .projects-container .project-card {
+        min-height: 0;
+    }
+
+    .project-snippet {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+        overflow: hidden;
+    }
+
+    .project-content::after {
+        content: 'Voir le projet ›';
+        display: block;
+        margin-top: 10px;
+        color: #fb9f1a;
+        font-size: 15px;
+        font-style: italic;
+        text-align: right;
+    }
+
+    /* Galerie : une rangée de polaroïds à faire glisser du doigt, d'un bord à l'autre de l'écran */
+    .photography-gallery {
+        display: flex;
+        gap: 14px;
+        margin: 20px -18px 0 -18px;
+        padding: 14px 18px 18px 18px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-padding: 0 18px;
+    }
+
+    .photo-polaroid {
+        flex: 0 0 72%;
+        scroll-snap-align: center;
+    }
+
+    .photography-gallery .photo-polaroid:hover {
+        transform: rotate(0deg);
+    }
+
+    .photo-item {
+        height: 240px;
+    }
+
+    .gallery-hint {
+        display: block;
+        margin: 0 0 24px 0;
+        color: #bdc7ea;
+        font-size: 14px;
+        font-style: italic;
+        text-align: center;
+    }
+}
