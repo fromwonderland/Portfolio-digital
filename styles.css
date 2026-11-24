@@ -173,7 +173,7 @@ html {
     background: white;
 }
 
-/* Barre d'état en bas de la fenêtre, avec les boutons Ouvrir / Télécharger */
+/* Barre d'état en bas de la fenêtre, avec le bouton « Ouvrir et télécharger » */
 .cv-window-status {
     display: flex;
     align-items: center;
@@ -184,11 +184,6 @@ html {
     border-top: 2px solid var(--border-color);
     color: #333;
     font-size: 14px;
-}
-
-.cv-window-actions {
-    display: flex;
-    gap: 10px;
 }
 
 .cv-window-button {
@@ -1579,7 +1574,7 @@ html {
         cursor: zoom-in;
     }
 
-    /* Fenêtre du CV : marges réduites, boutons pleine largeur faciles à toucher */
+    /* Fenêtre du CV : marges réduites, bouton pleine largeur facile à toucher */
     .cv-window-body {
         padding: 10px;
     }
@@ -1587,12 +1582,14 @@ html {
     .cv-window-status {
         flex-direction: column;
         align-items: stretch;
+        gap: 8px;
+        padding: 10px;
         text-align: center;
     }
 
     .cv-window-button {
-        flex: 1;
-        min-height: 44px;
+        min-height: 48px;
+        font-size: 16px;
     }
 
     /* Fiches projets et lettre en plein écran */

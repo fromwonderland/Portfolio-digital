@@ -122,6 +122,17 @@ function closeProject() {
     document.getElementById('project-modal').classList.remove('show');
 }
 
+// Bouton « Ouvrir et télécharger » du CV : le lien ouvre le PDF dans un nouvel onglet,
+// et cette fonction lance en même temps son téléchargement (dossier Téléchargements de l'appareil)
+function downloadCv(link) {
+    const download = document.createElement('a');
+    download.href = link.href;
+    download.download = 'CV_Camilia_SABA.pdf';
+    document.body.appendChild(download);
+    download.click();
+    download.remove();
+}
+
 function openLetter() {
     document.getElementById('letter-modal').classList.add('show');
 }
