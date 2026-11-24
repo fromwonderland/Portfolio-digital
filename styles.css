@@ -139,6 +139,7 @@ html {
 /* CV : fenêtre rétro (même style que les fenêtres « About me ») */
 .window-container.cv-window {
     --border-color: #2f80ed; /* contour bleu */
+    --bg-color: #e3eefc; /* fond bleu pastel (au lieu du beige des autres fenêtres) */
     max-width: 600px;
     margin: 24px auto;
 }
@@ -159,7 +160,7 @@ html {
 
 .cv-window-body {
     padding: 14px;
-    background-color: #d9d3b6; /* fond du « lecteur », un ton sous celui de la fenêtre */
+    background-color: #a9c6f0; /* fond du « lecteur », bleu pastel plus soutenu pour détacher la page blanche */
 }
 
 .cv-image {
