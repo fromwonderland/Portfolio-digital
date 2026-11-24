@@ -1,122 +1,116 @@
 /* =====================================================================
-   TEST D'ESTHÉTIQUES (branche test-esthetique-macos)
+   TEST D'ESTHÉTIQUES APPLE (branche test-esthetique-apple)
    Chargé après styles.css. Choix de l'esthétique : themes.js (attribut
    data-theme sur <html>, data-mac pour toutes sauf l'originale).
-   1. Couleurs, motifs et polices de chaque esthétique
-   2. Page, banderole et textes sur fond à motif
-   3. Fenêtres façon macOS (fenêtres, CV, frise, projets, fenêtres ouvertes)
-   4. Widget horloge et pastilles de choix
+   1. Couleurs de chaque esthétique (Clair, Fond d'écran, Sombre)
+   2. Typographie, page et banderole
+   3. Fenêtres macOS (À propos, Hobbies, CV, fenêtres ouvertes)
+   4. Cartes façon Apple (frise, projets, coordonnées, photos)
+   5. Téléphone
+   6. Widget horloge et pastilles de choix
    ===================================================================== */
 
 /* --- 1. Esthétiques --- */
 
-/* Menthe à pois (inspiration 2/8) : fond menthe à pois, bleu marine et rose corail */
-html[data-theme="menthe"] {
-    --ink: #1f2a3c;
-    --ink-soft: #52607a;
-    --title: #1d2f5e;
-    --accent: #d9506f;
-    --accent-soft: rgba(217, 80, 111, 0.12);
-    --accent-2: #2f9e7e;
-    --accent-ink: #ffffff;
-    --surface: #ffffff;
-    --surface-soft: #eef6f2;
-    --cv-backdrop: #a9d4c1;
-    --glass: rgba(240, 250, 246, 0.72);
-    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
-    --font-title: ui-rounded, "SF Pro Rounded", "Arial Rounded MT Bold", -apple-system, "Segoe UI", system-ui, sans-serif;
-    --title-style: normal;
-}
-
-html[data-theme="menthe"] body {
-    background-color: #d7efe6;
-    background-image:
-        radial-gradient(circle, #a8d8c4 0 3.5px, transparent 4px),
-        radial-gradient(circle, #a8d8c4 0 3.5px, transparent 4px);
-    background-size: 28px 28px;
-    background-position: 0 0, 14px 14px;
-}
-
-/* Rayures rose bonbon (inspiration 3/8) : rayures rose et crème, bordeaux */
-html[data-theme="rose"] {
-    --ink: #3a2230;
-    --ink-soft: #7a5566;
-    --title: #7b1f3f;
-    --accent: #c8325f;
-    --accent-soft: rgba(200, 50, 95, 0.12);
-    --accent-2: #d9952b;
-    --accent-ink: #ffffff;
-    --surface: #ffffff;
-    --surface-soft: #fdf1f3;
-    --cv-backdrop: #eeb1c2;
-    --glass: rgba(253, 242, 236, 0.75);
-    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
-    --font-title: Georgia, "Times New Roman", Times, serif;
-    --title-style: italic;
-}
-
-html[data-theme="rose"] body {
-    background-color: #fdf2e6;
-    background-image: repeating-linear-gradient(180deg,
-        #f6c3d0 0 4px, #fdf2e6 4px 10px, #f9d7df 10px 12px, #fdf2e6 12px 18px);
-}
-
-/* Crème et pois noirs (inspiration 8/8) : panneau perforé crème, police machine à écrire */
-html[data-theme="creme"] {
+/* Clair : l'esprit d'apple.com (gris très clair, cartes blanches, bleu Apple) */
+html[data-theme="clair"] {
+    --page: #f5f5f7;
     --ink: #1d1d1f;
-    --ink-soft: #5c5c60;
-    --title: #111111;
-    --accent: #7b1d3a;
-    --accent-soft: rgba(123, 29, 58, 0.10);
-    --accent-2: #c58b2b;
-    --accent-ink: #ffffff;
+    --ink-soft: #6e6e73;
+    --accent: #0071e3;
+    --accent-hover: #0077ed;
+    --accent-soft: rgba(0, 113, 227, 0.10);
     --surface: #ffffff;
-    --surface-soft: #f6f3ec;
-    --cv-backdrop: #d8cfb9;
-    --glass: rgba(246, 242, 233, 0.78);
-    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
-    --font-title: "Courier New", Courier, monospace;
-    --title-style: normal;
+    --surface-soft: #f5f5f7;
+    --line: #d2d2d7;
+    --glass: rgba(251, 251, 253, 0.80);
+    --bar: #f2f2f4;
+    --bar-line: rgba(0, 0, 0, 0.08);
+    --cv-backdrop: #e8e8ed;
+    --card-shadow: 0 2px 6px rgba(0, 0, 0, 0.04), 0 10px 30px rgba(0, 0, 0, 0.06);
+    --card-shadow-hover: 0 4px 10px rgba(0, 0, 0, 0.06), 0 18px 44px rgba(0, 0, 0, 0.10);
+    --window-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.12), 0 22px 70px rgba(0, 0, 0, 0.16);
+    --text-card: transparent;
+    --text-card-blur: none;
 }
 
-html[data-theme="creme"] body {
-    background-color: #f3eee3;
-    background-image: radial-gradient(circle, #141414 0 9px, transparent 9.5px);
-    background-size: 110px 110px;
-    background-position: 30px 30px;
+/* Fond d'écran : dégradé doux façon fond d'écran macOS, fenêtres et textes en verre dépoli */
+html[data-theme="fond"] {
+    --page: #eef1f8;
+    --ink: #1d1d1f;
+    --ink-soft: #55555c;
+    --accent: #0071e3;
+    --accent-hover: #0077ed;
+    --accent-soft: rgba(0, 113, 227, 0.12);
+    --surface: rgba(255, 255, 255, 0.82);
+    --surface-soft: rgba(245, 245, 247, 0.85);
+    --line: rgba(0, 0, 0, 0.12);
+    --glass: rgba(255, 255, 255, 0.60);
+    --bar: rgba(242, 242, 244, 0.92);
+    --bar-line: rgba(0, 0, 0, 0.08);
+    --cv-backdrop: rgba(214, 220, 235, 0.9);
+    --card-shadow: 0 2px 6px rgba(30, 40, 90, 0.06), 0 12px 34px rgba(30, 40, 90, 0.10);
+    --card-shadow-hover: 0 4px 10px rgba(30, 40, 90, 0.08), 0 20px 48px rgba(30, 40, 90, 0.16);
+    --window-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.10), 0 24px 70px rgba(30, 40, 90, 0.22);
+    --text-card: rgba(255, 255, 255, 0.62);
+    --text-card-blur: saturate(160%) blur(20px);
 }
 
-/* Barre de titre macOS (gris clair + pastilles rouge, jaune, verte), réutilisée par les
-   bulles de la frise et les cartes projets, qui n'ont pas de vraie barre de titre */
+html[data-theme="fond"] body {
+    background:
+        radial-gradient(at 12% 8%, #c6d8ff 0, transparent 45%),
+        radial-gradient(at 88% 18%, #e0d4ff 0, transparent 45%),
+        radial-gradient(at 70% 85%, #c9eee9 0, transparent 50%),
+        radial-gradient(at 15% 80%, #dfe7f7 0, transparent 45%),
+        #eef1f8;
+    background-attachment: fixed;
+}
+
+/* Sombre : le mode sombre d'Apple (noir, gris anthracite, bleu clair) */
+html[data-theme="sombre"] {
+    --page: #000000;
+    --ink: #f5f5f7;
+    --ink-soft: #a1a1a6;
+    --accent: #2997ff;
+    --accent-hover: #47a6ff;
+    --accent-soft: rgba(41, 151, 255, 0.15);
+    --surface: #1c1c1e;
+    --surface-soft: #2c2c2e;
+    --line: #424245;
+    --glass: rgba(22, 22, 23, 0.80);
+    --bar: #2c2c2e;
+    --bar-line: rgba(255, 255, 255, 0.08);
+    --cv-backdrop: #3a3a3c;
+    --card-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.08), 0 10px 30px rgba(0, 0, 0, 0.5);
+    --card-shadow-hover: 0 0 0 0.5px rgba(255, 255, 255, 0.12), 0 18px 44px rgba(0, 0, 0, 0.6);
+    --window-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.12), 0 22px 70px rgba(0, 0, 0, 0.7);
+    --text-card: transparent;
+    --text-card-blur: none;
+}
+
+/* --- 2. Typographie, page et banderole --- */
+
 html[data-mac] {
-    --mac-bar:
-        radial-gradient(circle at 16px 12px, #ff5f57 0 5px, transparent 5.5px),
-        radial-gradient(circle at 34px 12px, #febc2e 0 5px, transparent 5.5px),
-        radial-gradient(circle at 52px 12px, #28c840 0 5px, transparent 5.5px),
-        linear-gradient(180deg, #f4f4f5 0 24px, rgba(0, 0, 0, 0.10) 24px 25px, var(--surface) 25px);
-    --mac-shadow: 0 22px 50px rgba(0, 0, 0, 0.18), 0 4px 12px rgba(0, 0, 0, 0.08);
-    --mac-border: 1px solid rgba(0, 0, 0, 0.10);
+    --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-
-/* --- 2. Page, banderole et textes --- */
 
 html[data-mac] body {
-    background-attachment: fixed;
+    background-color: var(--page);
     color: var(--ink);
+    -webkit-font-smoothing: antialiased;
 }
 
 html[data-mac] body,
 html[data-mac] body * {
-    font-family: var(--font-body);
+    font-family: var(--font);
 }
 
-/* Banderole : barre de menus translucide. Le flou est posé sur un calque ::before et non sur
-   la banderole elle-même : un backdrop-filter sur la banderole ferait de celle-ci le repère de
-   la barre des dossiers (position: fixed) sur téléphone, qui remonterait alors en haut. */
+/* Banderole : barre de navigation translucide d'apple.com. Le flou est posé sur un calque
+   ::before : un backdrop-filter sur la banderole elle-même ferait remonter la barre des
+   dossiers (position: fixed) en haut de l'écran sur téléphone. */
 html[data-mac] .site-header {
     background: transparent;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid var(--bar-line);
 }
 
 html[data-mac] .site-header::before {
@@ -125,26 +119,35 @@ html[data-mac] .site-header::before {
     inset: 0;
     z-index: -1;
     background: var(--glass);
-    -webkit-backdrop-filter: saturate(180%) blur(18px);
-    backdrop-filter: saturate(180%) blur(18px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
 }
 
 html[data-mac] .site-name {
-    color: var(--title);
-    font-family: var(--font-title);
-    font-style: var(--title-style);
+    color: var(--ink);
     font-weight: 700;
+    letter-spacing: -0.02em;
 }
 
 html[data-mac] .site-status {
     border-color: transparent;
-    background: var(--surface);
+    background: var(--surface-soft);
     color: var(--ink-soft);
     font-style: normal;
 }
 
+/* Dossiers bleus façon Finder (remplace les couleurs posées dans index.html) */
 html[data-mac] .folder {
+    --folder: #6cb6f8 !important;
+    --folder-tab: #4a9ff0 !important;
     color: var(--ink);
+}
+
+html[data-mac] .folder-label {
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    text-decoration: none;
 }
 
 html[data-mac] .folder.is-active .folder-label {
@@ -155,37 +158,41 @@ html[data-mac] .folder:focus-visible {
     outline-color: var(--accent);
 }
 
-/* Titres de section : étiquettes posées sur le fond */
-html[data-mac] .section-title,
-html[data-mac] .chrono-title {
-    width: fit-content;
-    padding: 6px 18px;
-    border-radius: 999px;
-    background: var(--surface);
-    color: var(--title);
-    font-family: var(--font-title);
-    font-style: var(--title-style);
+/* Titres : grands, gras, serrés, comme sur les pages produits Apple */
+html[data-mac] .section-title {
+    color: var(--ink);
+    font-size: clamp(28px, 4vw, 44px);
     font-weight: 700;
-    text-shadow: none;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
 }
 
-html[data-mac] .section-title--center,
+html[data-mac] .section-title--center {
+    margin-top: 72px;
+}
+
 html[data-mac] .chrono-title {
+    color: var(--ink);
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-shadow: none;
+}
+
+/* Paragraphes : texte posé sur la page (sur une carte en verre dépoli pour « Fond d'écran ») */
+html[data-mac] .section-text,
+html[data-mac] .section-text--center {
+    max-width: 760px;
     margin-left: auto;
     margin-right: auto;
-}
-
-/* Paragraphes : cartes translucides, lisibles sur n'importe quel motif */
-html[data-mac] .section-text,
-html[data-mac] .notice {
-    padding: 14px 20px;
-    border-radius: 14px;
-    background: rgba(255, 255, 255, 0.85);
-    -webkit-backdrop-filter: blur(6px);
-    backdrop-filter: blur(6px);
-    color: var(--ink);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    padding: 16px 22px;
+    border-radius: 18px;
+    background: var(--text-card);
+    -webkit-backdrop-filter: var(--text-card-blur);
+    backdrop-filter: var(--text-card-blur);
+    color: var(--ink-soft);
+    font-size: 19px;
+    line-height: 1.55;
 }
 
 html[data-mac] .section-text:empty {
@@ -193,37 +200,39 @@ html[data-mac] .section-text:empty {
 }
 
 html[data-mac] .notice {
-    width: fit-content;
-    margin: 26px auto 30px auto;
+    color: var(--ink-soft);
+    font-size: 14px;
+    font-style: normal;
 }
 
 html[data-mac] .skills-cloud {
+    border-radius: 24px;
+    background: var(--surface);
+    box-shadow: var(--card-shadow);
+}
+
+html[data-mac] .skills-cloud img {
+    box-shadow: none;
+}
+
+html[data-mac] .aboutme-img,
+html[data-mac] .contact-img {
     border-radius: 18px;
-    background: rgba(255, 255, 255, 0.6);
-    -webkit-backdrop-filter: blur(6px);
-    backdrop-filter: blur(6px);
+    box-shadow: var(--card-shadow);
 }
 
 html[data-mac] .certification-item {
-    border: 4px solid #ffffff;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border: none;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+}
+
+html[data-mac] .certification-item:hover {
+    box-shadow: var(--card-shadow-hover);
 }
 
 html[data-mac] .certification-desc {
-    padding: 8px 10px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.88);
-    color: var(--ink);
-}
-
-/* Coordonnées : bloc central en carte */
-html[data-mac] .contact-center {
-    padding: 20px 24px;
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.88);
-    -webkit-backdrop-filter: blur(6px);
-    backdrop-filter: blur(6px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+    color: var(--ink-soft);
 }
 
 html[data-mac] .contact-block,
@@ -231,24 +240,31 @@ html[data-mac] .cv-download-text {
     color: var(--ink);
 }
 
-html[data-mac] .gallery-hint {
-    color: var(--ink-soft);
+html[data-mac] .cv-download-text {
+    font-style: normal;
+    text-decoration: none;
 }
 
-/* --- 3. Fenêtres façon macOS --- */
+html[data-mac] .gallery-hint {
+    color: var(--ink-soft);
+    font-style: normal;
+}
+
+/* --- 3. Fenêtres macOS --- */
 
 html[data-mac] .window-container {
-    border: var(--mac-border);
+    border: none;
     border-radius: 12px;
     background: var(--surface);
-    box-shadow: var(--mac-shadow);
+    box-shadow: var(--window-shadow);
+    transform: none; /* fenêtres alignées, sans décalage */
 }
 
 html[data-mac] .window-header {
-    height: 34px;
+    height: 32px;
     padding: 0 12px;
-    background: linear-gradient(180deg, #f7f7f8, #e8e8ea);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+    background: var(--bar);
+    border-bottom: 1px solid var(--bar-line);
 }
 
 html[data-mac] .window-buttons {
@@ -258,7 +274,7 @@ html[data-mac] .window-buttons {
 html[data-mac] .dot {
     width: 12px;
     height: 12px;
-    border: 0.5px solid rgba(0, 0, 0, 0.18);
+    border: 0.5px solid rgba(0, 0, 0, 0.15);
 }
 
 html[data-mac] .dot:nth-child(1) { background: #ff5f57; }
@@ -266,28 +282,31 @@ html[data-mac] .dot:nth-child(2) { background: #febc2e; }
 html[data-mac] .dot:nth-child(3) { background: #28c840; }
 
 html[data-mac] .plus-icon {
-    color: #9a9aa0;
-    font-size: 18px;
-    font-weight: 400;
+    visibility: hidden; /* garde le titre centré */
 }
 
 html[data-mac] .window-title {
-    color: #4a4a4f;
+    color: var(--ink-soft);
     font-size: 13px;
     font-weight: 600;
 }
 
 html[data-mac] .window-body {
-    padding: 14px 18px;
+    padding: 20px 24px;
     color: var(--ink);
-    line-height: 1.55;
+    font-size: 17px;
+    line-height: 1.6;
 }
 
 /* Fenêtre du CV */
+html[data-mac] .window-container.cv-window {
+    max-width: 640px;
+}
+
 html[data-mac] .cv-window-toolbar,
 html[data-mac] .cv-window-status {
-    background: var(--surface-soft);
-    border-color: rgba(0, 0, 0, 0.08);
+    background: var(--surface);
+    border-color: var(--bar-line);
     border-width: 1px;
 }
 
@@ -299,129 +318,50 @@ html[data-mac] .cv-window-body {
     background: var(--cv-backdrop);
 }
 
+/* Boutons « pilule » bleus d'Apple */
 html[data-mac] .cv-window-button {
+    min-height: 36px;
+    padding: 8px 20px;
     border: none;
-    border-radius: 8px;
+    border-radius: 980px;
     background: var(--accent);
-    color: var(--accent-ink);
-    font-weight: 600;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    box-shadow: none;
 }
 
 html[data-mac] .cv-window-button:hover,
 html[data-mac] .cv-window-button:focus-visible {
     transform: none;
-    filter: brightness(1.07);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.25);
-}
-
-html[data-mac] .cv-window-button:active {
-    transform: none;
-    filter: brightness(0.93);
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-/* Frise : chaque bulle devient une petite fenêtre (les flèches disparaissent) */
-html[data-mac] .timeline::before {
-    background: linear-gradient(to bottom, var(--accent), var(--title));
-}
-
-html[data-mac] .timeline-marker {
-    border-color: var(--surface);
-}
-
-html[data-mac] .timeline-marker--professional {
-    background: var(--accent);
-    box-shadow: 0 0 0 3px var(--accent-soft);
-}
-
-html[data-mac] .timeline-marker--academic {
-    background: var(--title);
-    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06);
-}
-
-html[data-mac] .timeline-marker--engagement {
-    background: var(--accent-2);
-    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06);
-}
-
-html[data-mac] .timeline-content {
-    padding-top: 36px;
-    border: var(--mac-border);
-    border-radius: 12px;
-    background: var(--mac-bar);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
-}
-
-html[data-mac] .timeline-content:hover {
-    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18);
-}
-
-html[data-mac] .timeline-item .timeline-content::before {
-    display: none;
-}
-
-html[data-mac] .timeline-date { color: var(--accent); }
-html[data-mac] .timeline-title { color: var(--ink); }
-html[data-mac] .timeline-subtitle { color: var(--ink-soft); }
-html[data-mac] .timeline-description { color: var(--ink); }
-
-html[data-mac] .timeline-links {
-    border-top-color: rgba(0, 0, 0, 0.08);
-}
-
-html[data-mac] .timeline-link {
-    border-color: var(--accent);
-    background: transparent;
-    color: var(--accent);
-}
-
-html[data-mac] .timeline-link:hover {
-    background: var(--accent-soft);
+    background: var(--accent-hover);
     box-shadow: none;
 }
 
-/* Cartes projets : petites fenêtres */
-html[data-mac] .project-card {
-    padding-top: 38px;
-    border: var(--mac-border);
-    border-radius: 12px;
-    background: var(--mac-bar);
-    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.14);
-}
-
-html[data-mac] .project-card:hover {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.20);
-}
-
-html[data-mac] .project-card-title {
-    color: var(--title);
-    font-family: var(--font-title);
-    font-style: var(--title-style);
-}
-
-html[data-mac] .project-snippet {
-    color: var(--ink);
+html[data-mac] .cv-window-button:active {
+    transform: scale(0.98);
+    box-shadow: none;
 }
 
 /* Fenêtres ouvertes (fiches projets, lettre) : barre de titre, la pastille rouge ferme */
 html[data-mac] .modal {
-    background: rgba(30, 30, 40, 0.45);
-    -webkit-backdrop-filter: blur(8px);
-    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.40);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
 }
 
 html[data-mac] .modal-content {
-    padding-top: 56px;
-    border: var(--mac-border);
-    border-radius: 14px;
+    padding-top: 60px;
+    border: none;
+    border-radius: 12px;
     background:
         radial-gradient(circle at 40.5px 17.5px, #febc2e 0 6px, transparent 6.5px),
         radial-gradient(circle at 60.5px 17.5px, #28c840 0 6px, transparent 6.5px),
-        linear-gradient(180deg, #f4f4f5 0 36px, rgba(0, 0, 0, 0.10) 36px 37px, var(--surface) 37px);
+        linear-gradient(180deg, var(--bar) 0 36px, var(--bar-line) 36px 37px, var(--surface) 37px);
+    background-color: var(--surface);
     background-attachment: local;
     color: var(--ink);
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+    box-shadow: var(--window-shadow);
 }
 
 html[data-mac] .modal-close {
@@ -445,9 +385,9 @@ html[data-mac] .modal-close:hover {
 
 html[data-mac] #modal-title,
 html[data-mac] .letter-title {
-    color: var(--title);
-    font-family: var(--font-title);
-    font-style: var(--title-style);
+    color: var(--ink);
+    font-weight: 700;
+    letter-spacing: -0.01em;
 }
 
 html[data-mac] #modal-desc {
@@ -455,28 +395,163 @@ html[data-mac] #modal-desc {
 }
 
 html[data-mac] .modal-grid img {
-    border-color: rgba(0, 0, 0, 0.10);
+    border: none;
+    border-radius: 12px;
 }
 
-/* Frise sur petits écrans : la barre de titre reste au-dessus du texte */
-@media (max-width: 768px) {
-    html[data-mac] .timeline-item .timeline-content {
-        padding-top: 36px !important;
-    }
+/* --- 4. Cartes façon Apple : sans barre de titre, très arrondies, ombre légère --- */
+
+/* Frise */
+html[data-mac] .timeline::before {
+    width: 2px;
+    background: var(--line);
 }
 
-/* Téléphone : barre des tâches translucide, fenêtres ouvertes en plein écran */
+html[data-mac] .timeline-marker {
+    width: 14px;
+    height: 14px;
+    border: 3px solid var(--page);
+    box-shadow: none;
+}
+
+html[data-mac] .timeline-marker--professional { background: var(--accent); }
+html[data-mac] .timeline-marker--academic { background: var(--ink-soft); }
+html[data-mac] .timeline-marker--engagement { background: #34c759; }
+
+html[data-mac] .timeline-content {
+    border: none;
+    border-radius: 18px;
+    background: var(--surface);
+    box-shadow: var(--card-shadow);
+}
+
+html[data-mac] .timeline-content:hover {
+    box-shadow: var(--card-shadow-hover);
+}
+
+html[data-mac] .timeline-item .timeline-content::before {
+    display: none;
+}
+
+html[data-mac] .timeline-date {
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+html[data-mac] .timeline-title {
+    color: var(--ink);
+    font-weight: 600;
+}
+
+html[data-mac] .timeline-subtitle {
+    color: var(--ink-soft);
+    font-style: normal;
+}
+
+html[data-mac] .timeline-description {
+    color: var(--ink);
+    line-height: 1.55;
+}
+
+html[data-mac] .timeline-links {
+    border-top-color: var(--bar-line);
+}
+
+html[data-mac] .timeline-link {
+    border: 1px solid var(--accent);
+    border-radius: 980px;
+    background: transparent;
+    color: var(--accent);
+    font-weight: 500;
+}
+
+html[data-mac] .timeline-link:hover {
+    background: var(--accent-soft);
+    box-shadow: none;
+}
+
+/* Projets */
+html[data-mac] .project-card {
+    border: none;
+    border-radius: 18px;
+    background: var(--surface);
+    box-shadow: var(--card-shadow);
+}
+
+html[data-mac] .project-card:hover {
+    box-shadow: var(--card-shadow-hover);
+}
+
+html[data-mac] .project-banner {
+    border-radius: 12px;
+}
+
+html[data-mac] .project-card-title {
+    color: var(--ink);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+html[data-mac] .project-snippet {
+    color: var(--ink-soft);
+}
+
+/* Coordonnées */
+html[data-mac] .contact-center {
+    padding: 28px 32px;
+    border-radius: 24px;
+    background: var(--surface);
+    box-shadow: var(--card-shadow);
+}
+
+html[data-mac] .contact-block {
+    font-weight: 400;
+}
+
+/* Photos : vignettes arrondies, sans effet polaroïd ni inclinaison */
+html[data-mac] .photo-polaroid {
+    padding: 0;
+    overflow: hidden;
+    border-radius: 14px;
+    background: transparent;
+    box-shadow: var(--card-shadow);
+    transform: none;
+}
+
+html[data-mac] .photo-polaroid:hover {
+    transform: scale(1.03);
+    box-shadow: var(--card-shadow-hover);
+}
+
+html[data-mac] .photo-item {
+    border-radius: 0;
+}
+
+/* --- 5. Téléphone --- */
+
 @media (max-width: 600px) {
     html[data-mac] .site-nav {
         background: var(--glass);
-        -webkit-backdrop-filter: saturate(180%) blur(18px);
-        backdrop-filter: saturate(180%) blur(18px);
-        border-top: 1px solid rgba(0, 0, 0, 0.08);
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        backdrop-filter: saturate(180%) blur(20px);
+        border-top: 1px solid var(--bar-line);
+    }
+
+    html[data-mac] .section-title--center {
+        margin-top: 48px;
+    }
+
+    html[data-mac] .section-text,
+    html[data-mac] .section-text--center {
+        padding: 12px 14px;
+        font-size: 17px;
     }
 
     html[data-mac] .modal-content {
         padding-top: calc(64px + env(safe-area-inset-top));
-        border: none;
         border-radius: 0;
         background: var(--surface);
     }
@@ -487,26 +562,32 @@ html[data-mac] .modal-grid img {
         left: auto;
         width: 44px;
         height: 44px;
-        border: 1px solid rgba(0, 0, 0, 0.15);
-        background: var(--surface);
+        border: none;
+        background: var(--surface-soft);
         color: var(--ink);
         font-size: 30px;
         line-height: 1;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        box-shadow: none;
     }
 
     html[data-mac] .project-content::after {
         color: var(--accent);
+        font-style: normal;
+    }
+
+    html[data-mac] .contact-center {
+        padding: 20px;
     }
 
     html[data-mac] .contact-action {
-        border-color: var(--accent);
-        background: var(--surface);
-        color: var(--accent);
+        border: none;
+        border-radius: 980px;
+        background: var(--accent);
+        color: #ffffff;
     }
 }
 
-/* --- 4. Widget horloge et pastilles de choix (présent dans toutes les esthétiques) --- */
+/* --- 6. Widget horloge et pastilles de choix (présent dans toutes les esthétiques) --- */
 
 .theme-widget {
     position: fixed;
@@ -518,21 +599,21 @@ html[data-mac] .modal-grid img {
     align-items: center;
     gap: 10px;
     padding: 12px 14px;
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    border-radius: 22px;
-    background: rgba(110, 118, 112, 0.55);
-    -webkit-backdrop-filter: saturate(160%) blur(18px);
-    backdrop-filter: saturate(160%) blur(18px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-    color: #ffffff;
+    border: 0.5px solid var(--line, rgba(255, 255, 255, 0.35));
+    border-radius: 20px;
+    background: var(--glass, rgba(60, 60, 60, 0.6));
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+    color: var(--ink, #ffffff);
 }
 
 .theme-widget .theme-clock {
-    font-family: ui-rounded, "SF Pro Rounded", -apple-system, "Segoe UI", system-ui, sans-serif;
-    font-size: 34px;
-    font-weight: 700;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-size: 32px;
+    font-weight: 600;
     font-variant-numeric: tabular-nums;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.02em;
     line-height: 1;
 }
 
@@ -542,10 +623,10 @@ html[data-mac] .modal-grid img {
 }
 
 .theme-swatch {
-    width: 26px;
-    height: 26px;
+    width: 24px;
+    height: 24px;
     padding: 0;
-    border: 2px solid rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(0, 0, 0, 0.18);
     border-radius: 50%;
     cursor: pointer;
     transition: transform 0.15s ease;
@@ -556,27 +637,27 @@ html[data-mac] .modal-grid img {
 }
 
 .theme-swatch[aria-pressed="true"] {
-    outline: 2px solid #ffffff;
+    outline: 2px solid var(--accent, #fb9f1a);
     outline-offset: 2px;
 }
 
-.theme-swatch--menthe {
-    background: #d7efe6 radial-gradient(circle, #6fbfa0 0 2px, transparent 2.5px) 0 0 / 7px 7px;
+.theme-swatch--clair {
+    background: linear-gradient(135deg, #ffffff 50%, #e8e8ed 50%);
 }
 
-.theme-swatch--rose {
-    background: repeating-linear-gradient(180deg, #f6c3d0 0 3px, #fdf2e6 3px 6px);
+.theme-swatch--fond {
+    background: linear-gradient(135deg, #c6d8ff, #e0d4ff 50%, #c9eee9);
 }
 
-.theme-swatch--creme {
-    background: #f3eee3 radial-gradient(circle, #141414 0 3px, transparent 3.5px) 3px 3px / 12px 12px;
+.theme-swatch--sombre {
+    background: linear-gradient(135deg, #2c2c2e 50%, #000000 50%);
 }
 
 .theme-swatch--original {
-    background: #000000;
+    background: radial-gradient(circle, #fb9f1a 0 4px, #000000 4.5px);
 }
 
-/* Téléphone : pastilles seules, au-dessus de la barre des tâches */
+/* Téléphone : pastilles seules, au-dessus de la barre des dossiers */
 @media (max-width: 600px) {
     .theme-widget {
         right: calc(10px + env(safe-area-inset-right));
@@ -587,10 +668,5 @@ html[data-mac] .modal-grid img {
 
     .theme-widget .theme-clock {
         display: none;
-    }
-
-    .theme-swatch {
-        width: 24px;
-        height: 24px;
     }
 }
