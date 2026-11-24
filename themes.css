@@ -12,26 +12,70 @@
 
 /* --- 1. Esthétiques --- */
 
-/* Clair : l'esprit d'apple.com (gris très clair, cartes blanches, bleu Apple) */
+/* Clair : l'esprit d'apple.com sur un fond bleu-vert (cartes blanches bien détachées, bleu Apple).
+   Contrastes : titres sombres sur le fond 7,1 à 11,1 ; texte gris foncé sur carte blanche 10 ;
+   liens #0066cc sur blanc 5,6 ; cartes blanches sur le fond 1,5 à 2,4 (1,09 sur l'ancien gris). */
 html[data-theme="clair"] {
-    --page: #f5f5f7;
+    --page: #6cc6e0;
     --ink: #1d1d1f;
-    --ink-soft: #6e6e73;
-    --accent: #0071e3;
-    --accent-hover: #0077ed;
-    --accent-soft: rgba(0, 113, 227, 0.10);
+    --ink-soft: #424245;
+    --accent: #0066cc;
+    --accent-hover: #0071e3;
+    --accent-soft: rgba(0, 102, 204, 0.10);
     --surface: #ffffff;
-    --surface-soft: #f5f5f7;
-    --line: #d2d2d7;
-    --glass: rgba(251, 251, 253, 0.80);
-    --bar: #f2f2f4;
-    --bar-line: rgba(0, 0, 0, 0.08);
-    --cv-backdrop: #e8e8ed;
-    --card-shadow: 0 2px 6px rgba(0, 0, 0, 0.04), 0 10px 30px rgba(0, 0, 0, 0.06);
-    --card-shadow-hover: 0 4px 10px rgba(0, 0, 0, 0.06), 0 18px 44px rgba(0, 0, 0, 0.10);
-    --window-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.12), 0 22px 70px rgba(0, 0, 0, 0.16);
-    --text-card: transparent;
+    --surface-soft: #f2f2f7;
+    --line: rgba(255, 255, 255, 0.85);
+    --glass: rgba(255, 255, 255, 0.78);
+    --bar: #e8e8ed;
+    --bar-line: rgba(0, 0, 0, 0.10);
+    --cv-backdrop: #d2d2d7;
+    --card-border: 1px solid rgba(0, 0, 0, 0.06);
+    --card-shadow: 0 1px 3px rgba(0, 30, 60, 0.10), 0 10px 30px rgba(0, 40, 80, 0.18);
+    --card-shadow-hover: 0 2px 6px rgba(0, 30, 60, 0.12), 0 18px 44px rgba(0, 40, 80, 0.26);
+    --window-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.16), 0 24px 70px rgba(0, 40, 80, 0.30);
+    --text-card: #ffffff;
     --text-card-blur: none;
+    --text-card-shadow: 0 1px 3px rgba(0, 30, 60, 0.10), 0 10px 30px rgba(0, 40, 80, 0.14);
+    --marker-ring: #ffffff;
+}
+
+/* Fond bleu-vert façon fond d'écran Apple : dégradé turquoise vers bleu ciel, deux reflets doux */
+html[data-theme="clair"] body {
+    background:
+        radial-gradient(at 12% 8%, rgba(255, 255, 255, 0.40) 0, transparent 40%),
+        radial-gradient(at 88% 92%, rgba(255, 255, 255, 0.22) 0, transparent 45%),
+        linear-gradient(160deg, #8ee0d8 0%, #6cc6e0 50%, #6aaee8 100%);
+    background-attachment: fixed;
+}
+
+/* Repères de section : un trait blanc sous chaque titre */
+html[data-theme="clair"] .section-title::after {
+    content: '';
+    display: block;
+    width: 56px;
+    height: 4px;
+    margin-top: 12px;
+    border-radius: 2px;
+    background: #ffffff;
+}
+
+html[data-theme="clair"] .section-title--center::after {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Textes posés directement sur le fond : en noir, et légendes des certificats en étiquettes */
+html[data-theme="clair"] .notice,
+html[data-theme="clair"] .gallery-hint {
+    color: var(--ink);
+}
+
+html[data-theme="clair"] .certification-desc {
+    padding: 8px 12px;
+    border-radius: 12px;
+    background: var(--surface);
+    color: var(--ink);
+    box-shadow: var(--card-shadow);
 }
 
 /* Fond d'écran : dégradé doux façon fond d'écran macOS, fenêtres et textes en verre dépoli */
@@ -190,6 +234,7 @@ html[data-mac] .section-text--center {
     background: var(--text-card);
     -webkit-backdrop-filter: var(--text-card-blur);
     backdrop-filter: var(--text-card-blur);
+    box-shadow: var(--text-card-shadow, none);
     color: var(--ink-soft);
     font-size: 19px;
     line-height: 1.55;
@@ -206,6 +251,7 @@ html[data-mac] .notice {
 }
 
 html[data-mac] .skills-cloud {
+    border: var(--card-border, none);
     border-radius: 24px;
     background: var(--surface);
     box-shadow: var(--card-shadow);
@@ -410,7 +456,7 @@ html[data-mac] .timeline::before {
 html[data-mac] .timeline-marker {
     width: 14px;
     height: 14px;
-    border: 3px solid var(--page);
+    border: 3px solid var(--marker-ring, var(--page));
     box-shadow: none;
 }
 
@@ -419,7 +465,7 @@ html[data-mac] .timeline-marker--academic { background: var(--ink-soft); }
 html[data-mac] .timeline-marker--engagement { background: #34c759; }
 
 html[data-mac] .timeline-content {
-    border: none;
+    border: var(--card-border, none);
     border-radius: 18px;
     background: var(--surface);
     box-shadow: var(--card-shadow);
@@ -475,7 +521,7 @@ html[data-mac] .timeline-link:hover {
 
 /* Projets */
 html[data-mac] .project-card {
-    border: none;
+    border: var(--card-border, none);
     border-radius: 18px;
     background: var(--surface);
     box-shadow: var(--card-shadow);
@@ -501,6 +547,7 @@ html[data-mac] .project-snippet {
 
 /* Coordonnées */
 html[data-mac] .contact-center {
+    border: var(--card-border, none);
     padding: 28px 32px;
     border-radius: 24px;
     background: var(--surface);
