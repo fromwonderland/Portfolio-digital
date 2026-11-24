@@ -122,9 +122,16 @@ function closeProject() {
     document.getElementById('project-modal').classList.remove('show');
 }
 
-// Bouton « Ouvrir et télécharger » du CV : le lien ouvre le PDF dans un nouvel onglet,
-// et cette fonction lance en même temps son téléchargement (dossier Téléchargements de l'appareil)
-function downloadCv(link) {
+// Boutons « Ouvrir et télécharger » du CV : ouvre le PDF dans un nouvel onglet,
+// puis lance son téléchargement (dossier Téléchargements de l'appareil)
+function openAndDownloadCv(event, link) {
+    event.preventDefault();
+    window.open(link.href, '_blank', 'noopener');
+
+    // En local (fichier ouvert par double-clic, adresse file://), les navigateurs ignorent
+    // l'attribut download et afficheraient le PDF dans l'onglet courant : pas de téléchargement
+    if (location.protocol === 'file:') return;
+
     const download = document.createElement('a');
     download.href = link.href;
     download.download = 'CV_Camilia_SABA.pdf';

@@ -111,6 +111,10 @@
                     <div class="window-title">CV_Camilia_SABA.pdf</div>
                     <div class="plus-icon">+</div>
                 </div>
+                <!-- Barre d'outils en haut du PDF : même bouton que dans la barre d'état -->
+                <div class="cv-window-toolbar">
+                    <a class="cv-window-button" href="Camilia SABA CV Master.pdf" target="_blank" rel="noopener noreferrer" onclick="openAndDownloadCv(event, this)">📂 Ouvrir et télécharger</a>
+                </div>
                 <div class="cv-window-body">
                     <!-- #toolbar=0&navpanes=0&view=FitH : sans barre d'outils ni miniatures, page ajustée à la largeur -->
                     <iframe class="cv-image" src="Camilia SABA CV Master.pdf#toolbar=0&amp;navpanes=0&amp;view=FitH" title="CV de Camilia SABA"></iframe>
@@ -119,8 +123,8 @@
                 </div>
                 <div class="cv-window-status">
                     <span class="cv-window-info">1 page · PDF · 240 Ko</span>
-                    <!-- Ouvre le PDF dans un nouvel onglet (lien) et le télécharge en même temps (downloadCv) -->
-                    <a class="cv-window-button" href="Camilia SABA CV Master.pdf" target="_blank" rel="noopener noreferrer" onclick="downloadCv(this)">📂 Ouvrir et télécharger</a>
+                    <!-- Ouvre le PDF dans un nouvel onglet et le télécharge en même temps (openAndDownloadCv) -->
+                    <a class="cv-window-button" href="Camilia SABA CV Master.pdf" target="_blank" rel="noopener noreferrer" onclick="openAndDownloadCv(event, this)">📂 Ouvrir et télécharger</a>
                 </div>
             </div>
 

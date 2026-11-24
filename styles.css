@@ -158,6 +158,14 @@ html {
     text-overflow: ellipsis;
 }
 
+/* Barre d'outils en haut du PDF, avec le bouton « Ouvrir et télécharger » */
+.cv-window-toolbar {
+    display: flex;
+    justify-content: flex-end;
+    padding: 8px 12px;
+    border-bottom: 2px solid var(--border-color);
+}
+
 .cv-window-body {
     padding: 14px;
     background-color: #a9c6f0; /* fond du « lecteur », bleu pastel plus soutenu pour détacher la page blanche */
@@ -1590,6 +1598,14 @@ html {
     .cv-window-button {
         min-height: 48px;
         font-size: 16px;
+    }
+
+    .cv-window-toolbar {
+        padding: 10px;
+    }
+
+    .cv-window-toolbar .cv-window-button {
+        flex: 1;
     }
 
     /* Fiches projets et lettre en plein écran */
