@@ -1,16 +1,17 @@
 /* =====================================================================
-   TEST D'ESTHÉTIQUES APPLE (branche test-esthetique-apple)
-   Chargé après styles.css. Choix de l'esthétique : themes.js (attribut
-   data-theme sur <html>, data-mac pour toutes sauf l'originale).
-   1. Couleurs de chaque esthétique (Clair, Fond d'écran, Sombre)
+   ESTHÉTIQUE APPLE : MODE CLAIR (par défaut) ET MODE SOMBRE
+   Chargé après styles.css. Le mode est porté par l'attribut data-theme
+   de <html> ("clair" dans index.html, "sombre" via le bouton de
+   themes.js) ; data-mac active l'ensemble de ces styles.
+   1. Couleurs des deux modes
    2. Typographie, page et banderole
    3. Fenêtres macOS (À propos, Hobbies, CV, fenêtres ouvertes)
    4. Cartes façon Apple (frise, projets, coordonnées, photos)
    5. Téléphone
-   6. Widget horloge et pastilles de choix
+   6. Bouton mode clair / mode sombre
    ===================================================================== */
 
-/* --- 1. Esthétiques --- */
+/* --- 1. Modes clair et sombre --- */
 
 /* Clair : l'esprit d'apple.com sur un fond bleu-vert (cartes blanches bien détachées, bleu Apple).
    Contrastes : titres sombres sur le fond 7,1 à 11,1 ; texte gris foncé sur carte blanche 10 ;
@@ -37,6 +38,8 @@ html[data-theme="clair"] {
     --text-card-blur: none;
     --text-card-shadow: 0 1px 3px rgba(0, 30, 60, 0.10), 0 10px 30px rgba(0, 40, 80, 0.14);
     --marker-ring: #ffffff;
+    --section-bar: #ffffff;
+    color-scheme: light;
 }
 
 /* Fond bleu-vert façon fond d'écran Apple : dégradé turquoise vers bleu ciel, deux reflets doux */
@@ -48,18 +51,18 @@ html[data-theme="clair"] body {
     background-attachment: fixed;
 }
 
-/* Repères de section : un trait blanc sous chaque titre */
-html[data-theme="clair"] .section-title::after {
+/* Repères de section : un trait sous chaque titre (blanc en mode clair, bleu en mode sombre) */
+html[data-mac] .section-title::after {
     content: '';
     display: block;
     width: 56px;
     height: 4px;
     margin-top: 12px;
     border-radius: 2px;
-    background: #ffffff;
+    background: var(--section-bar);
 }
 
-html[data-theme="clair"] .section-title--center::after {
+html[data-mac] .section-title--center::after {
     margin-left: auto;
     margin-right: auto;
 }
@@ -76,38 +79,6 @@ html[data-theme="clair"] .certification-desc {
     background: var(--surface);
     color: var(--ink);
     box-shadow: var(--card-shadow);
-}
-
-/* Fond d'écran : dégradé doux façon fond d'écran macOS, fenêtres et textes en verre dépoli */
-html[data-theme="fond"] {
-    --page: #eef1f8;
-    --ink: #1d1d1f;
-    --ink-soft: #55555c;
-    --accent: #0071e3;
-    --accent-hover: #0077ed;
-    --accent-soft: rgba(0, 113, 227, 0.12);
-    --surface: rgba(255, 255, 255, 0.82);
-    --surface-soft: rgba(245, 245, 247, 0.85);
-    --line: rgba(0, 0, 0, 0.12);
-    --glass: rgba(255, 255, 255, 0.60);
-    --bar: rgba(242, 242, 244, 0.92);
-    --bar-line: rgba(0, 0, 0, 0.08);
-    --cv-backdrop: rgba(214, 220, 235, 0.9);
-    --card-shadow: 0 2px 6px rgba(30, 40, 90, 0.06), 0 12px 34px rgba(30, 40, 90, 0.10);
-    --card-shadow-hover: 0 4px 10px rgba(30, 40, 90, 0.08), 0 20px 48px rgba(30, 40, 90, 0.16);
-    --window-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.10), 0 24px 70px rgba(30, 40, 90, 0.22);
-    --text-card: rgba(255, 255, 255, 0.62);
-    --text-card-blur: saturate(160%) blur(20px);
-}
-
-html[data-theme="fond"] body {
-    background:
-        radial-gradient(at 12% 8%, #c6d8ff 0, transparent 45%),
-        radial-gradient(at 88% 18%, #e0d4ff 0, transparent 45%),
-        radial-gradient(at 70% 85%, #c9eee9 0, transparent 50%),
-        radial-gradient(at 15% 80%, #dfe7f7 0, transparent 45%),
-        #eef1f8;
-    background-attachment: fixed;
 }
 
 /* Sombre : le mode sombre d'Apple (noir, gris anthracite, bleu clair) */
@@ -130,6 +101,8 @@ html[data-theme="sombre"] {
     --window-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.12), 0 22px 70px rgba(0, 0, 0, 0.7);
     --text-card: transparent;
     --text-card-blur: none;
+    --section-bar: #2997ff;
+    color-scheme: dark;
 }
 
 /* --- 2. Typographie, page et banderole --- */
@@ -634,86 +607,65 @@ html[data-mac] .photo-item {
     }
 }
 
-/* --- 6. Widget horloge et pastilles de choix (présent dans toutes les esthétiques) --- */
+/* --- 6. Bouton mode clair / mode sombre (angle inférieur droit) --- */
 
-.theme-widget {
+.mode-toggle {
     position: fixed;
-    right: calc(18px + env(safe-area-inset-right));
-    bottom: calc(18px + env(safe-area-inset-bottom));
+    right: calc(20px + env(safe-area-inset-right));
+    bottom: calc(20px + env(safe-area-inset-bottom));
     z-index: 1500;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 10px;
-    padding: 12px 14px;
-    border: 0.5px solid var(--line, rgba(255, 255, 255, 0.35));
-    border-radius: 20px;
-    background: var(--glass, rgba(60, 60, 60, 0.6));
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: 0.5px solid var(--bar-line);
+    border-radius: 50%;
+    background: var(--glass);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(20px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
-    color: var(--ink, #ffffff);
-}
-
-.theme-widget .theme-clock {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-    font-size: 32px;
-    font-weight: 600;
-    font-variant-numeric: tabular-nums;
-    letter-spacing: -0.02em;
-    line-height: 1;
-}
-
-.theme-swatches {
-    display: flex;
-    gap: 8px;
-}
-
-.theme-swatch {
-    width: 24px;
-    height: 24px;
-    padding: 0;
-    border: 1px solid rgba(0, 0, 0, 0.18);
-    border-radius: 50%;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+    color: var(--ink);
     cursor: pointer;
     transition: transform 0.15s ease;
 }
 
-.theme-swatch:hover {
-    transform: scale(1.12);
+.mode-toggle:hover {
+    transform: scale(1.06);
 }
 
-.theme-swatch[aria-pressed="true"] {
-    outline: 2px solid var(--accent, #fb9f1a);
-    outline-offset: 2px;
+.mode-toggle:active {
+    transform: scale(0.95);
 }
 
-.theme-swatch--clair {
-    background: linear-gradient(135deg, #ffffff 50%, #e8e8ed 50%);
+.mode-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
 }
 
-.theme-swatch--fond {
-    background: linear-gradient(135deg, #c6d8ff, #e0d4ff 50%, #c9eee9);
+.mode-toggle svg {
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
 }
 
-.theme-swatch--sombre {
-    background: linear-gradient(135deg, #2c2c2e 50%, #000000 50%);
+/* Lune en mode clair (passer en sombre), soleil en mode sombre (passer en clair) */
+.mode-toggle .icon-sun,
+html[data-theme="sombre"] .mode-toggle .icon-moon {
+    display: none;
 }
 
-.theme-swatch--original {
-    background: radial-gradient(circle, #fb9f1a 0 4px, #000000 4.5px);
+html[data-theme="sombre"] .mode-toggle .icon-sun {
+    display: block;
 }
 
-/* Téléphone : pastilles seules, au-dessus de la barre des dossiers */
+/* Téléphone : au-dessus de la barre des dossiers */
 @media (max-width: 600px) {
-    .theme-widget {
-        right: calc(10px + env(safe-area-inset-right));
+    .mode-toggle {
+        right: calc(12px + env(safe-area-inset-right));
         bottom: calc(78px + env(safe-area-inset-bottom));
-        padding: 8px 10px;
-        border-radius: 16px;
-    }
-
-    .theme-widget .theme-clock {
-        display: none;
+        width: 44px;
+        height: 44px;
     }
 }

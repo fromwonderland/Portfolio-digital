@@ -1,68 +1,48 @@
-// --- TEST D'ESTHÉTIQUES APPLE (branche test-esthetique-apple) ---
-// Applique l'esthétique choisie (mémorisée dans le navigateur) avant l'affichage de la page,
-// puis ajoute un widget horloge façon macOS avec une pastille par esthétique.
-// Pour abandonner le test : retirer themes.js et themes.css de index.html.
+// --- Mode clair / mode sombre façon Apple ---
+// Le mode clair est celui par défaut (data-theme="clair" dans index.html), même si l'appareil
+// est réglé en sombre. Le bouton en bas à droite bascule d'un mode à l'autre ; le choix est
+// mémorisé dans le navigateur. Ce script est chargé dans <head> pour éviter un flash du mauvais mode.
 (function () {
-    const THEMES = [
-        { id: 'clair', label: 'Apple clair' },
-        { id: 'fond', label: "Fond d'écran macOS" },
-        { id: 'sombre', label: 'Apple sombre' },
-        { id: 'original', label: 'Original (fond noir)' }
-    ];
-    const STORAGE_KEY = 'portfolio-theme';
+    const STORAGE_KEY = 'portfolio-mode';
     const root = document.documentElement;
+    // Couleur de la barre du navigateur sur téléphone, accordée au fond de chaque mode
+    const BROWSER_BAR_COLORS = { clair: '#6cc6e0', sombre: '#000000' };
 
-    function applyTheme(id) {
-        root.setAttribute('data-theme', id);
-        // data-mac active les fenêtres façon macOS (toutes les esthétiques sauf l'originale)
-        if (id === 'original') root.removeAttribute('data-mac');
-        else root.setAttribute('data-mac', '');
+    const MOON_ICON = '<svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>';
+    const SUN_ICON = '<svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/>'
+        + '<path d="M12 1.5v2.5M12 20v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M1.5 12H4M20 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8" '
+        + 'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
 
-        try { localStorage.setItem(STORAGE_KEY, id); } catch (e) { /* navigation privée */ }
+    function applyMode(mode) {
+        root.setAttribute('data-theme', mode);
 
-        document.querySelectorAll('.theme-swatch').forEach(button => {
-            button.setAttribute('aria-pressed', String(button.dataset.theme === id));
-        });
-        // La banderole mesure sa hauteur au redimensionnement : la police peut changer d'un thème à l'autre
-        window.dispatchEvent(new Event('resize'));
+        const meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', BROWSER_BAR_COLORS[mode]);
+
+        const button = document.querySelector('.mode-toggle');
+        if (button) {
+            const label = mode === 'sombre' ? 'Passer en mode clair' : 'Passer en mode sombre';
+            button.setAttribute('aria-pressed', String(mode === 'sombre'));
+            button.setAttribute('aria-label', label);
+            button.title = label;
+        }
     }
 
     let saved = null;
     try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) { /* navigation privée */ }
-    applyTheme(THEMES.some(t => t.id === saved) ? saved : 'clair');
+    applyMode(saved === 'sombre' ? 'sombre' : 'clair');
 
     document.addEventListener('DOMContentLoaded', function () {
-        const widget = document.createElement('div');
-        widget.className = 'theme-widget';
-        widget.setAttribute('role', 'group');
-        widget.setAttribute('aria-label', "Choisir l'esthétique du portfolio");
-
-        const clock = document.createElement('div');
-        clock.className = 'theme-clock';
-        clock.setAttribute('aria-hidden', 'true');
-        widget.appendChild(clock);
-
-        const swatches = document.createElement('div');
-        swatches.className = 'theme-swatches';
-        THEMES.forEach(theme => {
-            const button = document.createElement('button');
-            button.type = 'button';
-            button.className = 'theme-swatch theme-swatch--' + theme.id;
-            button.dataset.theme = theme.id;
-            button.title = theme.label;
-            button.setAttribute('aria-label', 'Esthétique : ' + theme.label);
-            button.setAttribute('aria-pressed', String(root.getAttribute('data-theme') === theme.id));
-            button.addEventListener('click', () => applyTheme(theme.id));
-            swatches.appendChild(button);
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'mode-toggle';
+        button.innerHTML = MOON_ICON + SUN_ICON;
+        button.addEventListener('click', function () {
+            const next = root.getAttribute('data-theme') === 'sombre' ? 'clair' : 'sombre';
+            applyMode(next);
+            try { localStorage.setItem(STORAGE_KEY, next); } catch (e) { /* navigation privée */ }
         });
-        widget.appendChild(swatches);
-        document.body.appendChild(widget);
-
-        // Horloge du widget (heure locale de l'appareil), mise à jour toutes les 10 secondes
-        function tick() {
-            clock.textContent = new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
-        }
-        tick();
-        setInterval(tick, 10000);
+        document.body.appendChild(button);
+        applyMode(root.getAttribute('data-theme'));
     });
 })();
