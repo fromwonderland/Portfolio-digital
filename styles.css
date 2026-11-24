@@ -136,32 +136,89 @@ html {
     transform: translateX(6px);
 }
 
-/* Styles CV image */
-.cv-image-wrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 22px;
-    margin: 14px 0;
+/* CV : fenêtre rétro (même style que les fenêtres « About me ») */
+.window-container.cv-window {
+    --border-color: #2f80ed; /* contour bleu */
+    max-width: 600px;
+    margin: 24px auto;
 }
 
-.cv-image-wrap .cv-download-link {
-    align-self: center;
-    margin: 0;
+/* Nom du fichier au centre de la barre de titre */
+.window-title {
+    flex: 1;
+    min-width: 0;
+    padding: 0 10px;
+    text-align: center;
+    color: var(--border-color);
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
+.cv-window-body {
+    padding: 14px;
+    background-color: #d9d3b6; /* fond du « lecteur », un ton sous celui de la fenêtre */
+}
+
 .cv-image {
     display: block;
-    max-width: 540px; /* agrandi 1.5x */
     width: 100%;
     height: 600px; /* hauteur fixe pour le PDF */
     border-radius: 6px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.45);
-    flex-shrink: 0;
     border: none;
     background: white;
 }
 
-/* Container centré pour l'ensemble image + CTA */
+/* Barre d'état en bas de la fenêtre, avec les boutons Ouvrir / Télécharger */
+.cv-window-status {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 8px 12px;
+    border-top: 2px solid var(--border-color);
+    color: #333;
+    font-size: 14px;
+}
+
+.cv-window-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.cv-window-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 36px;
+    padding: 4px 14px;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--header-color);
+    color: #2d2a4a;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 3px 3px 0 var(--border-color); /* ombre pleine façon bouton rétro */
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.cv-window-button:hover,
+.cv-window-button:focus-visible {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 var(--border-color);
+}
+
+.cv-window-button:active {
+    transform: translate(3px, 3px);
+    box-shadow: none;
+}
+
+/* Container centré du bouton « Voir mon CV » de la section Coordonnées */
 .cv-download {
     text-align: center;
     margin: 14px 0;
@@ -215,11 +272,6 @@ html {
     height: 4px;
     background-color: rgba(0,0,0,0.12);
     border-radius: 0 0 6px 6px;
-}
-
-@media (max-width:900px){
-    .cv-image-wrap { flex-direction: column; gap: 10px; }
-    .cv-image { max-width: 420px; }
 }
 
 @media (max-width:600px){
@@ -1520,11 +1572,26 @@ html {
     .cv-preview {
         display: block;
         width: 100%;
-        max-width: 340px;
         height: auto;
         border-radius: 6px;
         box-shadow: 0 6px 18px rgba(0,0,0,0.45);
         cursor: zoom-in;
+    }
+
+    /* Fenêtre du CV : marges réduites, boutons pleine largeur faciles à toucher */
+    .cv-window-body {
+        padding: 10px;
+    }
+
+    .cv-window-status {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    .cv-window-button {
+        flex: 1;
+        min-height: 44px;
     }
 
     /* Fiches projets et lettre en plein écran */

@@ -100,16 +100,29 @@
             <div id="skills-cloud" class="skills-cloud" aria-label="Nuage de compétences" role="img"></div>
 
             <p class="section-text section-text--center">Sur le plan technique, j'ai développé des compétences solides dans plusieurs langages de programmation : Python pour le développement d'applications et l'IA, Java POO pour la conception orientée objet, C pour l'algorithmique, SQL pour la gestion de bases de données, et le duo HTML/CSS pour le développement web. Cette polyvalence me permet d'aborder des projets variés avec agilité et d'adapter mes compétences aux besoins spécifiques de chaque mission.</p>
-            <div class="cv-download">
-                <div class="cv-image-wrap">
-                    <iframe class="cv-image" src="Camilia SABA CV Master.pdf" title="CV de Camilia SABA"></iframe>
-                    <!-- Aperçu image du CV : remplace le cadre PDF sur téléphone (première page de « Camilia SABA CV Master.pdf ») -->
+            <!-- CV dans une fenêtre rétro, du même style que les fenêtres « About me » -->
+            <div class="window-container cv-window">
+                <div class="window-header">
+                    <div class="window-buttons">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <div class="window-title">CV_Camilia_SABA.pdf</div>
+                    <div class="plus-icon">+</div>
+                </div>
+                <div class="cv-window-body">
+                    <!-- #toolbar=0&navpanes=0&view=FitH : sans barre d'outils ni miniatures, page ajustée à la largeur -->
+                    <iframe class="cv-image" src="Camilia SABA CV Master.pdf#toolbar=0&amp;navpanes=0&amp;view=FitH" title="CV de Camilia SABA"></iframe>
+                    <!-- Aperçu image du CV : remplace le cadre PDF sur téléphone (page unique de « Camilia SABA CV Master.pdf ») -->
                     <img class="cv-preview" src="cv_apercu.webp" alt="Aperçu du CV de Camilia SABA" loading="lazy" decoding="async">
-
-                    <a class="cv-download-link" href="Camilia SABA CV Master.pdf" target="_blank" rel="noopener noreferrer">
-                        <div class="cv-file-icon" aria-hidden="true"></div>
-                        <div class="cv-download-text">📥 Voir mon CV</div>
-                    </a>
+                </div>
+                <div class="cv-window-status">
+                    <span class="cv-window-info">1 page · PDF · 240 Ko</span>
+                    <div class="cv-window-actions">
+                        <a class="cv-window-button" href="Camilia SABA CV Master.pdf" target="_blank" rel="noopener noreferrer">📂 Ouvrir</a>
+                        <a class="cv-window-button" href="Camilia SABA CV Master.pdf" download>💾 Télécharger</a>
+                    </div>
                 </div>
             </div>
 
